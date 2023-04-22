@@ -1,0 +1,40 @@
+server:
+  port: 8503
+  servlet:
+    context-path: /bruce/huntJob
+spring:
+  profiles:
+    active: "@spring.profiles.active@"
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+  springfox:
+    documentation:
+      swagger:
+        v2:
+          host: ${BASE_HOST:}/bruce/huntJob
+
+#mybaits相关配置
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: assign_id
+  configuration:
+    auto-mapping-behavior: full
+    map-underscore-to-camel-case: true
+
+#logging:
+#  config: classpath:logback-spring.xml
+#  level:
+#    com.bpd.operational.mapper: debug
+
+cors:
+  origins: "*"
+
+
+
+
