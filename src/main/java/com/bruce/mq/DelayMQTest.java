@@ -25,6 +25,7 @@ public class DelayMQTest {
             // 发送消息
             producer.send(message);
         }
+        System.out.println("end");
 
     }
 }

@@ -1,5 +1,8 @@
 package com.bruce.designpattern;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class UserDao implements IUserDao{
 
     @Override

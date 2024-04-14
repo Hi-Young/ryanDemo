@@ -7,7 +7,7 @@ class ThreadA extends Thread{
     public void run() {
         synchronized (this) {
             try {                       
-                Thread.sleep(1000); //  使当前线阻塞 1 s，确保主程序的 t1.wait(); 执行之后再执行 notify()
+                Thread.sleep(5000); //  使当前线阻塞 1 s，确保主程序的 t1.wait(); 执行之后再执行 notify()
             } catch (Exception e) {
                 e.printStackTrace();
             }           

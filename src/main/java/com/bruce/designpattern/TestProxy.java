@@ -12,4 +12,6 @@ public class TestProxy {
         System.out.println(proxy.getClass());  //输出代理对象信息
         proxy.insert();  //执行代理方法
     }
+    
+    
 }

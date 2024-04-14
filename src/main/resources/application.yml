@@ -1,7 +1,5 @@
 server:
   port: 8503
-  servlet:
-    context-path: /bruce/huntJob
 spring:
   profiles:
     active: "@spring.profiles.active@"
