@@ -1,21 +1,35 @@
-package com.bruce.controller;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Test {
-    public static void main(String[] args) {
-//        String s = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
+@RunWith(SpringRunner.class)
+public class Test4J {
+    
+    @Test
+    public void backTrackTest() {
+        //        String s = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
 //        String s = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U";
         String s = "A,B";
         String[] split = s.split(",");
         List<String> list = Arrays.asList(split);
         List<List<String>> lists = generatePermutations(list);
-        System.out.println(lists.size());
+        System.out.println("lists size is " + lists.size());
 //        System.out.println(lists);
-
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public static List<List<String>> generatePermutations(List<String> list) {
         List<List<String>> result = new ArrayList<>();

@@ -5,7 +5,7 @@ spring:
       datasource:
         db1:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://127.0.0.1:3306/homework?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+          url: jdbc:mysql://127.0.0.1:3306/study?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
           username: root
           password: 123456
           type: com.zaxxer.hikari.HikariDataSource
@@ -19,10 +19,10 @@ spring:
 application:
   redis:
     database: 4
-    host: 10.137.36.181
+    host: 127.0.0.1
     port: 6379
     username: root
-    password: SSY@redis$
+    password: 
     lettuce:
       pool:
         max-idle: 10
@@ -30,16 +30,16 @@ application:
         min-idle: 5
         max-wait: 10000
 
-xxl-job:
-  admin:
-    addresses: http://10.180.68.17:7234/xxl-job-admin
-  executor:
-    appname: bpd-zone-manage-job
-    accessToken:
-    logpath: logs/${xxl-job.executor.appname}
-    logretentiondays: 30
-    ip:
-    port: 9990
+#xxl-job:
+#  admin:
+#    addresses: http://10.180.68.17:7234/xxl-job-admin
+#  executor:
+#    appname: bpd-zone-manage-job
+#    accessToken:
+#    logpath: logs/${xxl-job.executor.appname}
+#    logretentiondays: 30
+#    ip:
+#    port: 9990
 
 mybatis-plus:
   configuration:

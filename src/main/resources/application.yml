@@ -1,5 +1,5 @@
 server:
-  port: 8503
+  port: 10512
 spring:
   profiles:
     active: "@spring.profiles.active@"
@@ -14,7 +14,7 @@ spring:
     documentation:
       swagger:
         v2:
-          host: ${BASE_HOST:}/bruce/huntJob
+          host: ${BASE_HOST:}/bruce/study
 
 #mybaits相关配置
 mybatis-plus:
@@ -25,13 +25,6 @@ mybatis-plus:
     auto-mapping-behavior: full
     map-underscore-to-camel-case: true
 
-#logging:
-#  config: classpath:logback-spring.xml
-#  level:
-#    com.bpd.operational.mapper: debug
-
-cors:
-  origins: "*"
 
 
 
