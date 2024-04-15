@@ -1,4 +1,4 @@
-//package com.bruce.mq;
+//package com.bruce.study.mq;
 //
 //import lombok.extern.slf4j.Slf4j;
 //import org.apache.rocketmq.client.producer.DefaultMQProducer;

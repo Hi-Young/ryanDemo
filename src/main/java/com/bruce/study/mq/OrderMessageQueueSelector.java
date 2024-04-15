@@ -1,4 +1,4 @@
-package com.bruce.mq;
+package com.bruce.study.mq;
 
 import org.apache.rocketmq.client.producer.MessageQueueSelector;
 import org.apache.rocketmq.common.message.Message;

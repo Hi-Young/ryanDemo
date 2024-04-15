@@ -1,4 +1,4 @@
-package com.bruce.mq;
+package com.bruce.study.mq;
 
 import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyStatus;

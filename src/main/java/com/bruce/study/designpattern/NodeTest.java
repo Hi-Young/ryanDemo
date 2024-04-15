@@ -1,4 +1,4 @@
-package com.bruce.designpattern;
+package com.bruce.study.designpattern;
 
 /**
  * @author heyyon

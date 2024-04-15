@@ -1,4 +1,4 @@
-package com.bruce.thread;
+package com.bruce.study.thread;
 
 public class WaitTest {
     public static void main(String[] args) {

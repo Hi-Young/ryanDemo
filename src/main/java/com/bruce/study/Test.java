@@ -1,4 +1,4 @@
-package com.bruce;
+package com.bruce.study;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -1,4 +1,4 @@
-package com.bruce.thread;
+package com.bruce.study.thread;
 
 class ThreadA extends Thread{
     public ThreadA(String name) {
