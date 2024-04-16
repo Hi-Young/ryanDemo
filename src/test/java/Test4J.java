@@ -34,9 +34,12 @@ public class Test4J {
     @Test
     public void myBatisPlusTest() {
         List<User> users = userMapper.selectList(null);
-        log.info("users is {}", users);
+        users.forEach(System.out::println);
+        System.out.println("mybatis plus better");
         
     }
+    
+    
     
     
     
