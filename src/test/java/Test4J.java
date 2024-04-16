@@ -1,5 +1,11 @@
+import com.BruceHuntJobApplication;
+import com.bruce.entity.User;
+import com.bruce.mapper.UserMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -7,7 +13,11 @@ import java.util.Arrays;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
+@Slf4j
+@SpringBootTest(classes = BruceHuntJobApplication.class)
 public class Test4J {
+    @Autowired
+    private UserMapper userMapper;
     
     @Test
     public void backTrackTest() {
@@ -19,6 +29,13 @@ public class Test4J {
         List<List<String>> lists = generatePermutations(list);
         System.out.println("lists size is " + lists.size());
 //        System.out.println(lists);
+    }
+    
+    @Test
+    public void myBatisPlusTest() {
+        List<User> users = userMapper.selectList(null);
+        log.info("users is {}", users);
+        
     }
     
     

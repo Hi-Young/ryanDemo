@@ -44,3 +44,10 @@ application:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    root: warn
+    com.bruce.mapper: trace
+  pattern:
+    console: "%p%m%n"
+    
