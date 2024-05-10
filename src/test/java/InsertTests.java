@@ -2,6 +2,8 @@
 
 
 import com.BruceHuntJobApplication;
+import com.baomidou.mybatisplus.core.conditions.query.Query;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.bruce.entity.User;
 import com.bruce.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
@@ -55,5 +57,31 @@ class InsertTests {
         List<User> users = userMapper.selectByMap(columnMap);
         users.forEach(System.out::println);
     }
+    
+    @Test
+    public void queryWrapperTest() {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("name", "天风").lt("age", 26);
+        List<User> users = userMapper.selectList(queryWrapper);
+        users.forEach(System.out::println);
+        
+    }
+    
+    @Test
+    public void queryWrapper2Test() {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("name", "雨").between("age", 20, 40).isNotNull("email");
+        List<User> users = userMapper.selectList(queryWrapper);
+        users.forEach(System.out::println);
+    }
+    
+    @Test
+    public void queryWrapper3Test() {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.likeRight("name", "王").or().ge("age", 25).orderByDesc("age").orderByAsc("id");
+        List<User> users = userMapper.selectList(queryWrapper);
+        users.forEach(System.out::println);
+    }
+    
 }
 
