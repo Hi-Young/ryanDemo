@@ -1,8 +1,7 @@
 
 
 
-import com.BruceHuntJobApplication;
-import com.baomidou.mybatisplus.core.conditions.query.Query;
+import com.BruceDemoApplication;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.bruce.entity.User;
 import com.bruce.mapper.UserMapper;
@@ -13,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.*;
 
 
-@SpringBootTest(classes = BruceHuntJobApplication.class)
+@SpringBootTest(classes = BruceDemoApplication.class)
 class InsertTests {
 
     @Autowired

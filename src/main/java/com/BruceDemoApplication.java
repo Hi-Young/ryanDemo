@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication//去掉数据源
 @MapperScan("com.**.mapper")
-public class BruceHuntJobApplication {
+public class BruceDemoApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BruceHuntJobApplication.class,args);
+        SpringApplication.run(BruceDemoApplication.class,args);
     }
 
 }

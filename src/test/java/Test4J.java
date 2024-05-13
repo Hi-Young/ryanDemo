@@ -1,4 +1,4 @@
-import com.BruceHuntJobApplication;
+import com.BruceDemoApplication;
 import com.bruce.entity.User;
 import com.bruce.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @Slf4j
-@SpringBootTest(classes = BruceHuntJobApplication.class)
+@SpringBootTest(classes = BruceDemoApplication.class)
 public class Test4J {
     @Autowired
     private UserMapper userMapper;
