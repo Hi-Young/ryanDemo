@@ -11,10 +11,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.bruce.huntJob</groupId>
-    <artifactId>bruce-huntJob</artifactId>
+    <artifactId>bruce-demo</artifactId>
     <version>0.0.1</version>
-    <name>bruce-huntJob</name>
-    <description>huntJob</description>
+    <name>bruce-demo</name>
+    <description>bruceDemo</description>
 
     <properties>
         <java.version>1.8</java.version>
