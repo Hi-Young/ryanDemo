@@ -10,10 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @SpringBootTest(classes = BruceHuntJobApplication.class)
@@ -81,6 +78,14 @@ class InsertTests {
         queryWrapper.likeRight("name", "王").or().ge("age", 25).orderByDesc("age").orderByAsc("id");
         List<User> users = userMapper.selectList(queryWrapper);
         users.forEach(System.out::println);
+    }
+    
+    @Test
+    public void disjointTest() {
+        List<String> list1 = Arrays.asList("1", "2");
+        List<String> list2 = Arrays.asList("4", "3");
+        boolean disjoint = Collections.disjoint(list1, list2);
+        System.out.println(0);
     }
     
 }
