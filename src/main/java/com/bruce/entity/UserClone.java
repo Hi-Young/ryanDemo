@@ -3,12 +3,11 @@ package com.bruce.entity;
 
 import lombok.Data;
 
-
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-public class User {
+public class UserClone {
 
     //主键
     private Long id;
@@ -23,5 +22,5 @@ public class User {
     //创建时间
     private LocalDateTime createTime;
 
-    List<Hobbies> hobbiesList;
+    List<HobbiesClone> hobbiesList;
 }

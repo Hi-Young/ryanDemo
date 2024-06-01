@@ -1,15 +1,19 @@
 import com.BruceDemoApplication;
+import com.bruce.entity.Hobbies;
 import com.bruce.entity.User;
+import com.bruce.entity.UserClone;
 import com.bruce.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -47,19 +51,21 @@ public class Test4J {
         System.out.println("more.size() " + more.size());
         ArrayList<String> more1 = new ArrayList<>(more);
         more1.removeAll(less);
-//        System.out.println("more list is " + more1);
+        System.out.println("more list is " + more1);
         System.out.println("more.remove size() "+more1.size());
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    @Test
+    public void copyTest() {
+        User user = new User();
+        UserClone userClone = new UserClone();
+        user.setAge(11);
+        Hobbies hobbies = new Hobbies();
+        hobbies.setBasketball("bs");
+        user.setHobbiesList(Collections.singletonList(hobbies));
+        BeanUtils.copyProperties(user, userClone);
+        System.out.println(userClone);
+    }
     
     
 
