@@ -20,6 +20,10 @@ public class TestController {
     public List<String> test() {
         return Arrays.asList("1","2","3");
     }
-    
-    
+
+    @PostMapping("/testInteger")
+    public void testInteger() {
+        Integer integer = Integer.valueOf(123);
+        Integer integer1 = new Integer(123);
+    }
 }
