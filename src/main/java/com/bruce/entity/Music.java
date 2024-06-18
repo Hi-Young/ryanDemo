@@ -9,6 +9,8 @@ import java.util.List;
  */
 public class Music {
     public static void main(String[] args) {
+
+        Integer integer = Integer.valueOf(0);
         List<Instrument> list = new ArrayList<>();
         list.add(new Piano());
         list.add(new Violin());

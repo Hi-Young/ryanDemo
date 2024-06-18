@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan("com.**.mapper")
 public class BruceDemoApplication {
     public static void main(String[] args) {
+        Integer integer = Integer.valueOf(0);
         SpringApplication.run(BruceDemoApplication.class,args);
     }
 
