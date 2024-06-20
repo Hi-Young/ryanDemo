@@ -6,8 +6,8 @@ import java.util.List;
 public class CombineBooleanResult {
     public static void main(String[] args) {
         // 使用 Arrays.asList 创建列表
-        List<Boolean> booleanResult = Arrays.asList(false, false, true, true);
-        List<Boolean> logicSign = Arrays.asList(false, true, false, true);
+        List<Boolean> booleanResult = Arrays.asList(false, true, false);
+        List<Boolean> logicSign = Arrays.asList(true, false);
 
         boolean result = combineBooleanResult(booleanResult, logicSign);
         System.out.println("结果: " + result);  // 输出结果应为 true
