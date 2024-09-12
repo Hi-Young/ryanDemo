@@ -2,6 +2,7 @@ package com.bruce.study;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.math.BigDecimal;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
@@ -160,6 +161,10 @@ public class VerifyCodeUtil {
             k--;
         }
         return code;
+    }
+
+    public static void main(String[] args) {
+        BigDecimal.ONE.compareTo(BigDecimal.ZERO);
     }
 
 }
