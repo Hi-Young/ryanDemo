@@ -1,6 +1,8 @@
 package com;
 
+import com.example.demo.service.UserService;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,10 +12,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication//change name1
 @MapperScan("com.**.mapper")
-public class BruceDemoApplication {
+public class BruceDemoApplication implements CommandLineRunner {
+
+
+    public final UserService userService;
+
+    public BruceDemoApplication(UserService userService) {
+        this.userService = userService;
+    }
     public static void main(String[] args) {
-        Integer integer = Integer.valueOf(0);
         SpringApplication.run(BruceDemoApplication.class,args);
+    }
+
+    public void run(String... args) {
+        userService.addUser("Bruce");
     }
 
 }

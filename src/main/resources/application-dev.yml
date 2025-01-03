@@ -46,7 +46,8 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 logging:
   level:
-    root: warn
+    root: info
+    org.springframework: info
     com.bruce.mapper: trace
   pattern:
     console: "%p%m%n"
