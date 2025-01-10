@@ -168,6 +168,13 @@
             <artifactId>aspectjweaver</artifactId>
             <version>1.9.19</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/QLExpress -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>QLExpress</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+
 
     </dependencies>
 
