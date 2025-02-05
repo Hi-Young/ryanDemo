@@ -1,4 +1,4 @@
-package com.ryan.jvm.classLoader;
+package com.geektime.jvm.classLoader;
 
 public class Test {
     public void say() {

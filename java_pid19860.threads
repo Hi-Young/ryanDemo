@@ -49,7 +49,7 @@ Thread 0xff8effe0
   at java.lang.AbstractStringBuilder.ensureCapacityInternal(I)V (AbstractStringBuilder.java:124)
   at java.lang.AbstractStringBuilder.append(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder; (AbstractStringBuilder.java:448)
   at java.lang.StringBuilder.append(Ljava/lang/String;)Ljava/lang/StringBuilder; (StringBuilder.java:136)
-  at com.ryan.multithread.TestJvmOutOfMemory.main([Ljava/lang/String;)V (TestJvmOutOfMemory.java:18)
+  at com.geektime.multithread.TestJvmOutOfMemory.main([Ljava/lang/String;)V (TestJvmOutOfMemory.java:18)
 
   locals:
     objectId=0xffecd868, line=1

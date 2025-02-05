@@ -1,4 +1,4 @@
-package com.ryan.multithread;
+package com.geektime.multithread;
 
 /**
  * @author heyyon

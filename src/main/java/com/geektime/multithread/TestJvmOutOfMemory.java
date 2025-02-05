@@ -1,4 +1,4 @@
-package com.ryan.multithread;
+package com.geektime.multithread;
 
 import java.util.ArrayList;
 import java.util.List;
