@@ -1,4 +1,4 @@
-package com.ryan.jvm.Test;
+package com.ryan.multithread;
 
 import java.util.ArrayList;
 import java.util.List;
