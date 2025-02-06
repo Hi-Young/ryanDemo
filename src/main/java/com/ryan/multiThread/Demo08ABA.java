@@ -1,4 +1,5 @@
 package com.ryan.multiThread;
+
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicStampedReference;
@@ -40,7 +41,7 @@ public class Demo08ABA {
             }
             asr.compareAndSet(100, 101, asr.getStamp(), asr.getStamp() + 1);
             System.out.println(Thread.currentThread().getName() + "\t第二次版本号： " + asr.getStamp());
-                    asr.compareAndSet(101, 100, asr.getStamp(), asr.getStamp() + 1);
+            asr.compareAndSet(101, 100, asr.getStamp(), asr.getStamp() + 1);
             System.out.println(Thread.currentThread().getName() + "\t第三次版本号： " + asr.getStamp());
         }, "t3").start();
         new Thread(() -> {
@@ -52,10 +53,10 @@ public class Demo08ABA {
                     e) {
                 e.printStackTrace();
             }
-            boolean result = asr.compareAndSet(100, 2022, stamp, stamp + 1);
+            boolean result = asr.compareAndSet(100, 2025, stamp, stamp + 1);
             System.out.println(Thread.currentThread().getName() + "\t修改成功与 否：" + result + " 当前最新版本号" + asr.getStamp());
 
-            System.out.println(Thread.currentThread().getName() + "\t当前实际值："+ asr.getReference());
+            System.out.println(Thread.currentThread().getName() + "\t当前实际值：" + asr.getReference());
         }, "t4").start();
     }
 }
