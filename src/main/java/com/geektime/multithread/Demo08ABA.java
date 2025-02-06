@@ -1,4 +1,4 @@
-package com.ryan.multiThread;
+package com.geektime.multithread;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;

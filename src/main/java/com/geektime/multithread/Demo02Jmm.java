@@ -1,4 +1,4 @@
-package com.ryan.multiThread;
+package com.geektime.multithread;
 
 public class Demo02Jmm {
     public static void main(String[] args) throws InterruptedException {

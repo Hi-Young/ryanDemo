@@ -1,4 +1,4 @@
-package com.ryan.multiThread;
+package com.geektime.multithread;
 
 public class ThreadDemo {
     public static void main(String[] args) {

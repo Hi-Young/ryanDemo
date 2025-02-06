@@ -1,4 +1,4 @@
-package com.ryan.multiThread;
+package com.geektime.multithread;
 
 public class Demo01Ticket {
     public static void main(String[] args) {
