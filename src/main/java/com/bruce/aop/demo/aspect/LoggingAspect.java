@@ -1,4 +1,4 @@
-package com.bruce.demo.aspect;
+package com.bruce.aop.demo.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -19,7 +19,7 @@ public class LoggingAspect {
 //        System.out.println("After method:" + joinPoint.getSignature().getName());
 //    }
 
-    @Around("execution(* com.bruce.demo.service.UserService.addUser(..))")
+    @Around("execution(* com.bruce.aop.demo.service.UserService.addUser(..))")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("Before method:" + joinPoint.getSignature().getName());
         Object result = joinPoint.proceed();

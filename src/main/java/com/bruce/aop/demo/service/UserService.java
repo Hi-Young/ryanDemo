@@ -1,4 +1,4 @@
-package com.bruce.demo.service;
+package com.bruce.aop.demo.service;
 
 import org.springframework.stereotype.Service;
 
