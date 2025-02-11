@@ -66,6 +66,12 @@ public class Test4J {
         BeanUtils.copyProperties(user, userClone);
         System.out.println(userClone);
     }
+
+    @Test
+    public void getCPUNumbers() {
+        System.out.println("CPUs" + Runtime.getRuntime().availableProcessors());
+
+    }
     
     
 
