@@ -1,5 +1,15 @@
 package com.geektime.multithread;
 
+/**
+ * 这个问题问了多个AI,测试结果如下：
+ * CHATGPT: O3-MINI 错, O3-MINI-HIGH 对,  O1对
+ * 豆包错
+ * kimi错
+ * 通义2.5MAX对
+ * Claude错
+ * deepseek对
+ * 谷歌 2.0pro exp错，2.0flash对
+ */
 public class ThreadStateExample {
 
     private static final Object lock = new Object(); // 用于线程之间的同步
@@ -18,6 +28,8 @@ public class ThreadStateExample {
                 }
             }
         });
+
+        Thread.sleep(10);
 
         // 创建线程2
         Thread thread2 = new Thread(() -> {
