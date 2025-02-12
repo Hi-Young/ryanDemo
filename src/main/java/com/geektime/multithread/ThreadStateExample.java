@@ -2,7 +2,7 @@ package com.geektime.multithread;
 
 /**
  * 这个问题问了多个AI,测试结果如下：
- * CHATGPT: O3-MINI 错, O3-MINI-HIGH 对,  O1对
+ * CHATGPT: O3-MINI 错, O3-MINI-HIGH 对,  O1对,4O错
  * 豆包错
  * kimi错
  * 通义2.5MAX对
