@@ -7,7 +7,7 @@ public class TestMyClassLoader {
 //自定义类加载器的加载路径
         HeroClassLoader hClassLoader = new HeroClassLoader("D:\\lib");
 //包名+类名
-        Class c = hClassLoader.loadClass("com.geektime.jvm.classLoader.Test");
+        Class c = hClassLoader.loadClass("com.ryan.jvm.classLoader.Test");
         if (c != null) {
             Object obj = c.newInstance();
             Method method = c.getMethod("say", null);
