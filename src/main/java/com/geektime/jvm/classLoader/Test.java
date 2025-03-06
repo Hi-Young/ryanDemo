@@ -2,7 +2,7 @@ package com.geektime.jvm.classLoader;
 
 public class Test {
     public void say() {
-        System.out.println("Hello HeroClassLoader");
+        System.out.println("Hello CurrentHeroClassLoader");
     }
 
     public static void main(String[] args) {

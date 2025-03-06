@@ -1,0 +1,29 @@
+{
+  "appCode": "spotter-erp",
+  "appApiCode": "spotter.erp.push.inbound.order.sub",
+  "format": "json",
+  "schemeCode": "spotter_wms_solution",
+  "body": {
+    "entryOrder": {
+      "entryOrderCode": "IBNC9271HJA1DFsFc",
+      "expectStartTime": "2025-02-19 07:00:00",
+      "expressCode": "testcaidf1o23A2,dc1cssxAr2",
+      "logisticsCode": "eccc2",
+      "multiReceiveAllowed": "Y",
+      "orderType": "SPTRK",
+      "relatedOrderCode": "SSPF74ssxA7610",
+      "transportMode": "SP",
+      "warehouseCode": "HFX3XL09202A"
+    },
+    "orderLines": [
+      {
+        "inventoryType": "ZP",
+        "itemCode": "00054-3110-0780",
+        "orderLineNo": "BN4HUxsK02d5zd0d",
+        "ownerCode": "54",
+        "planQty": 4,
+        "specCode": "S83mE14O930"
+      }
+    ]
+  }
+}
