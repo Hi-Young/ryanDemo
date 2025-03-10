@@ -35,7 +35,7 @@ public class CacheTimeOutDelayedQueueTest {
             while (redis.size() != 0){
                 for (int i = 0; i < 3; i++) {
                     String o = (String) redis.get("缓存" + i);
-                    System.out.println("从缓存中获取到"+o);
+                    System.out.println("缓存"+i+"->从缓存中获取到"+o);
                 }
                 try {
                     Thread.sleep(3000);
