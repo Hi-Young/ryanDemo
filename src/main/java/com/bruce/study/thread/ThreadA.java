@@ -4,6 +4,7 @@ class ThreadA extends Thread{
     public ThreadA(String name) {
         super(name);
     }
+    @Override
     public void run() {
         synchronized (this) {
             try {                       
