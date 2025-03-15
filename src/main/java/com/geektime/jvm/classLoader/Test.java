@@ -1,14 +1,15 @@
 package com.geektime.jvm.classLoader;
 
 public class Test {
-    public void say() {
+    public static void say() {
         System.out.println("Hello CurrentHeroClassLoader");
     }
 
     public static void main(String[] args) {
         try {
-            Thread.sleep(1000000000);
-        } catch (InterruptedException e) {
+            say();
+//            Thread.sleep(1000000000);
+        } catch (Exception e) {
 
 
         }
