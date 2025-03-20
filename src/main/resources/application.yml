@@ -14,7 +14,7 @@ spring:
     documentation:
       swagger:
         v2:
-          host: ${BASE_HOST:}/bruce/study
+          host: ${BASE_HOST:}/ryan/study
 
 #mybaits相关配置
 mybatis-plus:

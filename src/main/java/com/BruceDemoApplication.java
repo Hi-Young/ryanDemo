@@ -1,6 +1,6 @@
 package com;
 
-import com.bruce.aop.demo.service.UserService;
+import com.ryan.aop.demo.service.UserService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

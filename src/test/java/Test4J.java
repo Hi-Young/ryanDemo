@@ -1,8 +1,8 @@
 import com.BruceDemoApplication;
-import com.bruce.entity.Hobbies;
-import com.bruce.entity.User;
-import com.bruce.entity.UserClone;
-import com.bruce.mapper.UserMapper;
+import com.ryan.entity.Hobbies;
+import com.ryan.entity.User;
+import com.ryan.entity.UserClone;
+import com.ryan.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
