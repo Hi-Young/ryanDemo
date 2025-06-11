@@ -1,4 +1,4 @@
-import com.BruceDemoApplication;
+import com.RyanDemoApplication;
 import com.ryan.entity.Hobbies;
 import com.ryan.entity.User;
 import com.ryan.entity.UserClone;
@@ -18,7 +18,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @Slf4j
-@SpringBootTest(classes = BruceDemoApplication.class)
+@SpringBootTest(classes = RyanDemoApplication.class)
 public class Test4J {
     @Autowired
     private UserMapper userMapper;

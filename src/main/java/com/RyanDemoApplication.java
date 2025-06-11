@@ -12,16 +12,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication//change name1
 @MapperScan("com.**.mapper")
-public class BruceDemoApplication implements CommandLineRunner {
+public class RyanDemoApplication implements CommandLineRunner {
 
 
     public final UserService userService;
 
-    public BruceDemoApplication(UserService userService) {
+    public RyanDemoApplication(UserService userService) {
         this.userService = userService;
     }
     public static void main(String[] args) {
-        SpringApplication.run(BruceDemoApplication.class,args);
+        SpringApplication.run(RyanDemoApplication.class,args);
     }
 
     public void run(String... args) {
