@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Around("execution(* com.ryan.business.user.service.UserService.addUser(..))")
+    @Around("execution(* com.ryan.business.service.UserService.addUser(..))")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("Before method:" + joinPoint.getSignature().getName());
         Object result = joinPoint.proceed();

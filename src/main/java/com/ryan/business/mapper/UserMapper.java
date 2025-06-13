@@ -1,7 +1,7 @@
-package com.ryan.business.user.mapper;
+package com.ryan.business.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ryan.business.user.entity.User;
+import com.ryan.business.entity.User;
 
 import java.util.List;
 

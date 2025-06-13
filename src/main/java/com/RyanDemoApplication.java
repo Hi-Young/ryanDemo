@@ -1,5 +1,5 @@
 package com;
-import com.ryan.business.user.service.UserService;
+import com.ryan.business.service.UserService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

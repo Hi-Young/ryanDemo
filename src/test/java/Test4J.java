@@ -1,6 +1,6 @@
 import com.RyanDemoApplication;
-import com.ryan.business.user.entity.User;
-import com.ryan.business.user.mapper.UserMapper;
+import com.ryan.business.entity.User;
+import com.ryan.business.mapper.UserMapper;
 import com.ryan.experiment.demo.Hobbies;
 import com.ryan.experiment.demo.UserClone;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 @RunWith(SpringRunner.class)

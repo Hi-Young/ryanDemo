@@ -1,4 +1,4 @@
-package com.ryan.business.user.service;
+package com.ryan.business.service;
 
 import org.springframework.stereotype.Service;
 
