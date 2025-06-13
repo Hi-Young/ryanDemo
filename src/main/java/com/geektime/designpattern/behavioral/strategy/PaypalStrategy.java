@@ -1,4 +1,4 @@
-﻿package com.geektime.designpattern.behavioral.strategy;
+package com.geektime.designpattern.behavioral.strategy;
 
 public class PaypalStrategy implements PaymentStrategy {
     private String email;

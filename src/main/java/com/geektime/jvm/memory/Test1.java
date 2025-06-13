@@ -1,4 +1,4 @@
-﻿package com.geektime.concurrent.basic;
+package com.geektime.concurrent.basic;
 
 public class Test1 {
     public static void say() {

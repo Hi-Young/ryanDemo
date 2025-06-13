@@ -1,4 +1,4 @@
-﻿package com.geektime.framework.spring.ioc;
+package com.geektime.framework.spring.ioc;
 
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;

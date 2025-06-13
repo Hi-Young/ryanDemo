@@ -1,4 +1,4 @@
-﻿package com.geektime.concurrent.basic;
+package com.geektime.concurrent.basic;
 
 class ThreadA extends Thread{
     public ThreadA(String name) {

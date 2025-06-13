@@ -1,8 +1,6 @@
-﻿package com.ryan.experiment.demo;
-
+package com.ryan.business.user.entity;
 
 import lombok.Data;
-
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,12 +15,9 @@ public class User {
     //邮箱
     private String email;
     //年龄
-    private  Integer age;
+    private Integer age;
     //直属上级
-    private  Long managerId;
+    private Long managerId;
     //创建时间
     private LocalDateTime createTime;
-
-    List<Hobbies> hobbiesList;
 }
-

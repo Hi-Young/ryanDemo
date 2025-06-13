@@ -1,5 +1,5 @@
-// 方式2：在配置类中使用 @Bean
 package com.geektime.spring;
+import com.geektime.spring.MyBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

@@ -1,4 +1,4 @@
-﻿package com.geektime.middleware.mq;
+package com.geektime.middleware.mq;
 
 import org.apache.rocketmq.client.producer.MessageQueueSelector;
 import org.apache.rocketmq.common.message.Message;

@@ -1,4 +1,4 @@
-﻿package com.geektime.basic.generic;
+package com.geektime.basic.generic;
 
 import java.util.ArrayList;
 import java.util.List;

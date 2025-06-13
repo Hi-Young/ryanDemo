@@ -1,4 +1,4 @@
-﻿//package com.geektime.middleware.mq;
+package com.geektime.middleware.mq;
 //
 //import lombok.extern.slf4j.Slf4j;
 //import org.apache.rocketmq.client.producer.DefaultMQProducer;

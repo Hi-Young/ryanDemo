@@ -1,4 +1,4 @@
-﻿package com.geektime.designpattern.behavioral.strategy;
+package com.geektime.designpattern.behavioral.strategy;
 
 public class PaymentContext {
     private PaymentStrategy paymentStrategy;

@@ -1,7 +1,7 @@
-﻿package com.ryan.business.user.controller;
+package com.ryan.business.user.controller;
 
-import com.ryan.study.entity.User;
-import com.ryan.mapper.UserMapper;
+import com.ryan.business.user.mapper.UserMapper;
+import com.ryan.business.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,4 +35,5 @@ public class TestController {
     
     
 }
+
 

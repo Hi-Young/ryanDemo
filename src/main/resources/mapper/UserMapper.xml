@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ryan.mapper.UserMapper">
+<mapper namespace="com.ryan.business.user.mapper.UserMapper">
 
 
-    <select id="queryAllData" resultType="com.ryan.study.entity.User">
+    <select id="queryAllData" resultType="com.ryan.business.user.entity.User">
         select * from user
     </select>
 </mapper>
+

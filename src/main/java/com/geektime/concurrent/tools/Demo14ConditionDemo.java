@@ -1,4 +1,4 @@
-﻿package com.geektime.concurrent.basic;
+package com.geektime.concurrent.basic;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;

@@ -1,4 +1,4 @@
-﻿package com.geektime.designpattern.behavioral.strategy;
+package com.geektime.designpattern.behavioral.strategy;
 
 public class StrategyPatternDemo {
     public static void main(String[] args) {

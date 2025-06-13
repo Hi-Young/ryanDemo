@@ -1,4 +1,4 @@
-﻿package com.geektime.framework.spring.ioc;
+package com.geektime.framework.spring.ioc;
 
 public class SynchronizedTest {
     private int count = 0;

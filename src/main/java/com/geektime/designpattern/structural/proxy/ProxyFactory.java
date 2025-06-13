@@ -1,4 +1,4 @@
-﻿package com.geektime.designpattern.structural.proxy;
+package com.geektime.designpattern.structural.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

@@ -1,4 +1,4 @@
-﻿package com.geektime.designpattern.behavioral.template;
+package com.geektime.designpattern.behavioral.template;
 
 public class TestClass {
 

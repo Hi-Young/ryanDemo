@@ -1,4 +1,4 @@
-﻿package com.geektime.designpattern.structural.proxy;
+package com.geektime.designpattern.structural.proxy;
 
 import org.junit.Test;
 

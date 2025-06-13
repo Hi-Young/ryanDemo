@@ -1,4 +1,4 @@
-﻿package com.geektime.designpattern.behavioral.strategy;
+package com.geektime.designpattern.behavioral.strategy;
 
 // 策略接口：定义支付算法
 public interface PaymentStrategy {

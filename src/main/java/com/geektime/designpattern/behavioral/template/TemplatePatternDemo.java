@@ -1,4 +1,4 @@
-﻿package com.geektime.designpattern.behavioral.template;
+package com.geektime.designpattern.behavioral.template;
 
 // 抽象模板类，定义了游戏流程的骨架
 abstract class Game {

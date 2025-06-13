@@ -1,8 +1,8 @@
 import com.RyanDemoApplication;
-import com.ryan.study.entity.Hobbies;
-import com.ryan.study.entity.User;
-import com.ryan.study.entity.UserClone;
-import com.ryan.mapper.UserMapper;
+import com.ryan.business.user.entity.User;
+import com.ryan.business.user.mapper.UserMapper;
+import com.ryan.experiment.demo.Hobbies;
+import com.ryan.experiment.demo.UserClone;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,7 +62,6 @@ public class Test4J {
         user.setAge(11);
         Hobbies hobbies = new Hobbies();
         hobbies.setBasketball("bs");
-        user.setHobbiesList(Collections.singletonList(hobbies));
         BeanUtils.copyProperties(user, userClone);
         System.out.println(userClone);
     }

@@ -1,4 +1,4 @@
-﻿package com.geektime.concurrent.basic;
+package com.geektime.concurrent.basic;
 
 public class Demo01Ticket {
     public static void main(String[] args) {

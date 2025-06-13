@@ -1,4 +1,4 @@
-﻿package com.geektime.concurrent.basic;
+package com.geektime.concurrent.basic;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;

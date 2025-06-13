@@ -1,4 +1,4 @@
-﻿package com.geektime.designpattern.creational.factory;
+package com.geektime.designpattern.creational.factory;
 
 import java.util.HashMap;
 import java.util.Map;

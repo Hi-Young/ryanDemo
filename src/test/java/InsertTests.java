@@ -3,8 +3,8 @@
 
 import com.RyanDemoApplication;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.ryan.study.entity.User;
-import com.ryan.mapper.UserMapper;
+import com.ryan.business.user.entity.User;
+import com.ryan.business.user.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

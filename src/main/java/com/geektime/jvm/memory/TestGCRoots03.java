@@ -1,4 +1,4 @@
-﻿package com.geektime.framework.spring.ioc;
+package com.geektime.framework.spring.ioc;
 
 /**
  * 测试常量引用对象作为GCRoots 

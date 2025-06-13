@@ -1,4 +1,4 @@
-﻿package com.geektime.concurrent.basic;
+package com.geektime.concurrent.basic;
 
 /**
  * 这个问题问了多个AI,测试结果如下：

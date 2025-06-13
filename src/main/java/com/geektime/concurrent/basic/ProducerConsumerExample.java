@@ -1,4 +1,4 @@
-﻿package com.geektime.concurrent.basic;
+package com.geektime.concurrent.basic;
 
 public class ProducerConsumerExample {
     private static final Object lock = new Object();  // 锁对象

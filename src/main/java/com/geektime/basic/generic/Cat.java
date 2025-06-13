@@ -1,4 +1,4 @@
-﻿package com.geektime.basic.generic;
+package com.geektime.basic.generic;
 
 public class Cat {
     private String name;

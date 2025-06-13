@@ -1,6 +1,7 @@
 package com.geektime.spring;
 
-import com.geektime.designpattern.template.Cricket;
+
+import com.geektime.designpattern.behavioral.template.Cricket;
 
 public class TestClass {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-﻿//package com.geektime.middleware.mq;
+package com.geektime.middleware.mq;
 //
 //import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 //import org.apache.rocketmq.common.consumer.ConsumeFromWhere;

@@ -1,4 +1,4 @@
-﻿package com.geektime.concurrent.lock;
+package com.geektime.concurrent.lock;
 
 public class CustomLockTest {
     private static int counter = 0;

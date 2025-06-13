@@ -1,4 +1,4 @@
-﻿package com.ryan.experiment.test;
+package com.ryan.experiment.test;
 
 import org.apache.commons.lang3.StringUtils;
 

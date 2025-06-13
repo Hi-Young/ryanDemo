@@ -1,4 +1,4 @@
-﻿package com.ryan.experiment.test;
+package com.ryan.experiment.test;
 
 import java.util.ArrayList;
 import java.util.List;

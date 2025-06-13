@@ -1,4 +1,4 @@
-﻿package com.ryan.experiment.test.qltest;
+package com.ryan.experiment.test.qltest;
 
 import com.ql.util.express.DefaultContext;
 import com.ql.util.express.ExpressRunner;

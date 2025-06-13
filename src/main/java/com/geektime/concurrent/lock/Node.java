@@ -1,4 +1,4 @@
-﻿package com.geektime.concurrent.lock;
+package com.geektime.concurrent.lock;
 
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.LockSupport;

@@ -1,4 +1,4 @@
-﻿package com.geektime.concurrent.basic;
+package com.geektime.concurrent.basic;
 
 public class DoubleCheckLocker {
     private static volatile DoubleCheckLocker doubleCheckLocker;

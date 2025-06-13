@@ -1,10 +1,10 @@
-﻿package com.ryan.business.user.controller;
+package com.ryan.business.user.controller;
 
+import com.ryan.business.user.entity.UserDTO;
 import com.ryan.common.base.ResultVO;
 import com.ryan.common.exceptionhandler.BusinessException;
 import com.ryan.common.exceptionhandler.ParamException;
 import com.ryan.common.exceptionhandler.ResourceNotFoundException;
-import com.ryan.entity.UserDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-﻿package com.geektime.algorithm;
+package com.geektime.algorithm;
 
 import java.util.Arrays;
 import java.util.List;
