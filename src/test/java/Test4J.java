@@ -1,7 +1,7 @@
 import com.RyanDemoApplication;
-import com.ryan.entity.Hobbies;
-import com.ryan.entity.User;
-import com.ryan.entity.UserClone;
+import com.ryan.study.entity.Hobbies;
+import com.ryan.study.entity.User;
+import com.ryan.study.entity.UserClone;
 import com.ryan.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

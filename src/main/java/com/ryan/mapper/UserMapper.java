@@ -1,7 +1,7 @@
 package com.ryan.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ryan.entity.User;
+import com.ryan.study.entity.User;
 
 import java.util.List;
 

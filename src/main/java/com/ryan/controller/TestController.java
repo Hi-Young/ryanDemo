@@ -1,13 +1,12 @@
 package com.ryan.controller;
 
-import com.ryan.entity.User;
+import com.ryan.study.entity.User;
 import com.ryan.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -24,7 +23,7 @@ public class TestController {
     @PostMapping("/test")
     public List<User> test() {
         List<User> list = userMapper.queryAllData();
-
+        int i = 1 / 0;
         return list;
     }
 
