@@ -7,7 +7,8 @@ public class GetInstanceClass<T> {
 
     public static <T> T getInstance(Class<T> clazz) {
         try {
-            return clazz.getDeclaredConstructor().newInstance();
+            T t = clazz.getDeclaredConstructor().newInstance();
+            return t;
         } catch (Exception e) {
              e.printStackTrace();
             return null;

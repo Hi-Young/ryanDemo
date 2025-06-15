@@ -52,6 +52,21 @@ public class AspectTestController {
         return ResultVO.success("慢查询完成");
     }
 
+    @PerformanceAspect.MonitorPerformance(value = "测试实验", threshold = 200)
+    @GetMapping("/test-aop")
+    public ResultVO<String> testAOP() {
+        log.info("我是业务代码，我正在执行...");
+
+        try {
+            Thread.sleep(500); // 模拟业务处理
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        log.info("我是业务代码，我执行完了！");
+        return ResultVO.success("业务执行完成");
+    }
+
     @PerformanceAspect.MonitorPerformance("异常方法测试")
     @GetMapping("/performance/error")
     public ResultVO<String> errorMethod() {
@@ -63,8 +78,11 @@ public class AspectTestController {
     @OperationLogAspect.OperationLog(value = "查询用户详情", module = "用户管理", recordResult = true)
     @GetMapping("/operation/user/{id}")
     public ResultVO<User> getUserWithLog(@PathVariable Long id) {
+        log.info("开始执行getUserWithLog");
         User user = userMapper.selectById(id);
+        log.info("getUserWithLog执行结束");
         return ResultVO.success(user);
+        
     }
 
     @OperationLogAspect.OperationLog(value = "批量查询用户", module = "用户管理", recordParams = true, recordResult = true)

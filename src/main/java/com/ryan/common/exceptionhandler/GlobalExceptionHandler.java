@@ -108,7 +108,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public ResultVO<String> handleException(Exception e) {
-        log.error("系统异常: {}", e.getMessage(), e);
+        log.error("[全局异常处理器]系统异常: {}", e.getMessage(), e);
         return ResultVO.error(500, "系统内部错误，请联系管理员");
     }
 }
