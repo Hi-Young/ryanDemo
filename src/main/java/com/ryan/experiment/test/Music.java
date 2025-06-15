@@ -1,4 +1,8 @@
-package com.ryan.experiment.demo;
+package com.ryan.experiment.test;
+
+import com.ryan.experiment.demo.Instrument;
+import com.ryan.experiment.demo.Piano;
+import com.ryan.experiment.demo.Violin;
 
 import java.util.ArrayList;
 import java.util.List;
