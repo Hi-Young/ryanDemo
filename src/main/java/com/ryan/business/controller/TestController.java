@@ -1,7 +1,7 @@
 package com.ryan.business.controller;
 
 import com.ryan.business.mapper.UserMapper;
-import com.ryan.business.entity.User;
+import com.ryan.business.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

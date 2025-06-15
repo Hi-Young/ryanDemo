@@ -1,5 +1,5 @@
 import com.RyanDemoApplication;
-import com.ryan.business.entity.User;
+import com.ryan.business.entity.user.User;
 import com.ryan.business.mapper.UserMapper;
 import com.ryan.experiment.demo.Hobbies;
 import com.ryan.experiment.demo.UserClone;

@@ -1,4 +1,4 @@
-package com.ryan.business.entity;
+package com.ryan.business.entity.user;
 
 import lombok.Data;
 

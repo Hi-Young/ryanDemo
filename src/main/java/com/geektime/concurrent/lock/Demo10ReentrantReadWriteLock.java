@@ -1,4 +1,4 @@
-package com.geektime.concurrent.basic;
+package com.geektime.concurrent.lock;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantReadWriteLock;

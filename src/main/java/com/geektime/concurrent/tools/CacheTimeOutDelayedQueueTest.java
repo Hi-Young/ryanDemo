@@ -1,4 +1,4 @@
-package com.geektime.concurrent.basic;
+package com.geektime.concurrent.tools;
 
 import java.util.HashMap;
 import java.util.Map;

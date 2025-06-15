@@ -1,6 +1,6 @@
 package com.ryan.business.controller;
 
-import com.ryan.business.entity.UserDTO;
+import com.ryan.business.entity.user.UserDTO;
 import com.ryan.common.base.ResultVO;
 import com.ryan.common.exceptionhandler.BusinessException;
 import com.ryan.common.exceptionhandler.ParamException;

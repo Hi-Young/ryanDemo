@@ -1,4 +1,4 @@
-package com.geektime.concurrent.basic;
+package com.geektime.concurrent.pool;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

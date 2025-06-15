@@ -1,4 +1,5 @@
-package com.geektime.concurrent.basic;
+package com.geektime.concurrent.tools;
+
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;

@@ -1,9 +1,8 @@
-package com.ryan.business.entity;
+package com.ryan.business.entity.user;
 
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 public class User {

@@ -1,4 +1,4 @@
-package com.geektime.framework.spring.ioc;
+package com.geektime.concurrent.basic;
 
 public class WaitNotifyTest {
     static Object o = new Object();
