@@ -41,11 +41,35 @@ public class GetInstanceClass<T> {
 
         List<String> stringList = castList(list, String.class);
         System.out.println(stringList); // 输出：[Hello, World]
+
+        List<Double> doubleList = new ArrayList<>();
+        doubleList.add(1.5);
+        doubleList.add(2.5);
+
+//        dangerousMethod(doubleList);  // 传入Double列表
+
+        // 问题来了：现在doubleList里混入了Integer！
+        for (Double d : doubleList) {  // 💥 ClassCastException！
+            System.out.println(d);
+        }
     }
 
     public T getInstance() {
         return null;
     }
 
+    public void dangerousMethod(List<? extends Number> list) {
+//        list.add(100);  // 假设这行代码合法...
+    }
+
+//    public void dangerousMethod(List<? extends Number> list) {
+        // 编译器在这里面临的困境：
+        // "我不知道list到底是List<Integer>还是List<Double>"
+        // "如果我允许添加任何Number子类..."
+
+//        list.add(100);    // 假设允许添加Integer
+//        list.add(1.5);    // 假设允许添加Double  
+//        list.add(1.1f);   // 假设允许添加Float
+    }
 }
 

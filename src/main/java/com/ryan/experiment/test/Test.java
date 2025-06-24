@@ -13,6 +13,8 @@ public class Test {
 //    private A a;
 
     public static void main(String[] args) {
+        
+        
 //        Set<String> keywords = VerifyCodeUtil.batchGenerateVerifyCode(10, 300000L);
         System.out.println(0);
         List<String[]> list = new ArrayList<>();
