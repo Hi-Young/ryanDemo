@@ -4,12 +4,14 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author heyyon
  * @date 2023-04-22 16:52
  */
 @SpringBootApplication//change name1
+@EnableScheduling
 @MapperScan("com.**.mapper")
 public class RyanDemoApplication implements CommandLineRunner {
 

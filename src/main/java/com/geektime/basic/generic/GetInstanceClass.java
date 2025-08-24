@@ -10,11 +10,10 @@ public class GetInstanceClass<T> {
             T t = clazz.getDeclaredConstructor().newInstance();
             return t;
         } catch (Exception e) {
-             e.printStackTrace();
+            e.printStackTrace();
             return null;
         }
     }
-
 
 
     public static <T> List<T> castList(List<Object> list, Class<T> clazz) {
@@ -63,13 +62,13 @@ public class GetInstanceClass<T> {
     }
 
 //    public void dangerousMethod(List<? extends Number> list) {
-        // 编译器在这里面临的困境：
-        // "我不知道list到底是List<Integer>还是List<Double>"
-        // "如果我允许添加任何Number子类..."
+    // 编译器在这里面临的困境：
+    // "我不知道list到底是List<Integer>还是List<Double>"
+    // "如果我允许添加任何Number子类..."
 
 //        list.add(100);    // 假设允许添加Integer
 //        list.add(1.5);    // 假设允许添加Double  
 //        list.add(1.1f);   // 假设允许添加Float
-    }
+//    }
 }
 

@@ -15,8 +15,10 @@ public class User {
     private String email;
     //年龄
     private Integer age;
-    //直属上级
-    private Long managerId;
+    //状态
+    private Integer status;
     //创建时间
     private LocalDateTime createTime;
+    //更新时间
+    private LocalDateTime updateTime;
 }

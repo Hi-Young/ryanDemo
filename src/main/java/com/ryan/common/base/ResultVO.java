@@ -28,4 +28,8 @@ public class ResultVO<T> {
     public static <T> ResultVO<T> error(String message) {
         return new ResultVO<>(500, message, null);
     }
+    
+    public static <T> ResultVO<T> error(String message, T data) {
+        return new ResultVO<>(500, message, data);
+    }
 }

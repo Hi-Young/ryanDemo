@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(mvn compile:*)",
+      "Bash(mysql:*)",
+      "Bash(mvn spring-boot:run:*)",
+      "Bash(env)",
+      "mcp__mcp_server_mysql__mysql_query",
+      "Read(//usr/**)",
+      "Bash(grep:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

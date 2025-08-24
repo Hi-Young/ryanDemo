@@ -8,5 +8,23 @@
     <select id="queryAllData" resultType="com.ryan.business.entity.user.User">
         select * from user
     </select>
+    
+    <!-- 模拟慢SQL查询，每次查询延迟0.5秒 -->
+    <select id="getUserDetail" resultType="com.ryan.business.entity.user.User">
+        select 
+            id,
+            username as name,
+            email,
+            age,
+            status,
+            create_time as createTime,
+            update_time as updateTime,
+            sleep(0.5) as dummy  -- 模拟慢SQL，延迟0.5秒
+        from user 
+        where id = #{id}
+    </select>
+    <select id="listAllDataPage" resultType="com.ryan.business.entity.user.User">
+        select * from user limit #{size}
+    </select>
 </mapper>
 

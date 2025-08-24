@@ -181,11 +181,11 @@
             <version>4.1.8.Final</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>threadpool-spring-boot-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.example</groupId>-->
+<!--            <artifactId>threadpool-spring-boot-starter</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -206,6 +206,12 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                    <jvmArguments>
+                        -XX:MetaspaceSize=128m
+                        -XX:MaxMetaspaceSize=256m
+                        -Xms512m
+                        -Xmx1024m
+                    </jvmArguments>
                 </configuration>
             </plugin>
         </plugins>
