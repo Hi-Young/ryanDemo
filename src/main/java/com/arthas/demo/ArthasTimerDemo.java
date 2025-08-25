@@ -11,12 +11,12 @@ public class ArthasTimerDemo {
 
     private Random random = new Random();
 
-    @Scheduled(fixedRate = 5000) // Runs every 5 seconds
+//    @Scheduled(fixedRate = 5000) // Runs every 5 seconds
     public void fastTimer() {
         System.out.println("Fast timer executed at: " + new Date());
     }
 
-    @Scheduled(fixedRate = 15000) // Runs every 15 seconds
+//    @Scheduled(fixedRate = 15000) // Runs every 15 seconds
     public void processDataBatch() {
         System.out.println("Processing data batch...");
         try {
@@ -28,12 +28,12 @@ public class ArthasTimerDemo {
         System.out.println("Data batch processing finished.");
     }
 
-    @Scheduled(cron = "0 * * * * ?") // Runs every minute
+//    @Scheduled(cron = "0 * * * * ?") // Runs every minute
     public void healthCheck() {
         System.out.println("Performing health check...");
     }
 
-    @Scheduled(fixedRate = 20000) // Runs every 20 seconds
+//    @Scheduled(fixedRate = 20000) // Runs every 20 seconds
     public void slowTask() {
         System.out.println("Starting slow task...");
         try {

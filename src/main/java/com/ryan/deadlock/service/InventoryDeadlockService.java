@@ -276,12 +276,29 @@ public class InventoryDeadlockService {
         thread2.start();
         
         try {
-            thread1.join();
-            thread2.join();
+            // 添加超时机制，避免无限等待
+            thread1.join(10000); // 10秒超时
+            thread2.join(10000); // 10秒超时
+            
+            // 检查线程是否还在运行
+            if (thread1.isAlive()) {
+                log.warn("库存线程1执行超时，可能发生死锁，强制中断");
+                thread1.interrupt();
+            }
+            if (thread2.isAlive()) {
+                log.warn("库存线程2执行超时，可能发生死锁，强制中断");
+                thread2.interrupt();
+            }
+            
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+            log.error("主线程被中断: {}", e.getMessage());
         }
         
         log.info("库存扣减死锁模拟完成");
+    }
+
+    public void simulateDeadlockEnhanced() {
+        
     }
 }

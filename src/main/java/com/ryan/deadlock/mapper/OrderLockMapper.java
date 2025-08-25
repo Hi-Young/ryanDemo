@@ -45,7 +45,7 @@ public interface OrderLockMapper extends BaseMapper<OrderLock> {
     /**
      * 查询指定时间范围内的订单(可能产生Gap锁)
      */
-    @Select("SELECT * FROM order_locks WHERE create_time BETWEEN #{startTime} AND #{endTime} ORDER BY create_time")
+    @Select("SELECT * FROM order_locks WHERE create_time BETWEEN #{startTime} AND #{endTime} ORDER BY create_time for update")
     List<OrderLock> selectOrdersByTimeRange(@Param("startTime") String startTime, @Param("endTime") String endTime);
     
     /**
@@ -54,4 +54,12 @@ public interface OrderLockMapper extends BaseMapper<OrderLock> {
     @Select("INSERT INTO order_locks (order_no, user_id, product_ids, total_amount, status) " +
             "VALUES (#{orderNo}, #{userId}, #{productIds}, #{totalAmount}, #{status})")
     int insertOrderLock(OrderLock orderLock);
+    
+    /**
+     * 按用户ID范围更新订单状态 - 产生Gap锁
+     * 更新所有user_id > minUserId的订单状态为处理中(status=1)
+     */
+    @Update("UPDATE order_locks SET status = 1, process_time = NOW(), update_time = NOW() " +
+            "WHERE user_id > #{minUserId}")
+    int updateOrderStatusByUserIdRange(@Param("minUserId") Integer minUserId);
 }

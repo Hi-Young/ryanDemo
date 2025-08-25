@@ -22,7 +22,9 @@ public class RyanDemoApplication implements CommandLineRunner {
         this.userService = userService;
     }
     public static void main(String[] args) {
-        SpringApplication.run(RyanDemoApplication.class,args);
+        // 添加启动参数以激活dev环境配置
+        System.setProperty("spring.profiles.active", "dev");
+        SpringApplication.run(RyanDemoApplication.class, args);
     }
 
     public void run(String... args) {

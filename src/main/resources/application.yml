@@ -1,31 +1,61 @@
 server:
   port: 18888
+  servlet:
+    context-path: /
+
 spring:
-  profiles:
-    active: "@spring.profiles.active@"
+  application:
+    name: RyanDemo
+  datasource:
+    dynamic:
+      primary: db1
+      datasource:
+        db1:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+          username: root
+          password: 123456
+          type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 12
+      connection-timeout: 60000
+      minimum-idle: 10
+      idle-timeout: 500000
+      max-lifetime: 540000
+      connection-test-query: select 1
+
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-  servlet:
-    multipart:
-      max-file-size: 5MB
-      max-request-size: 5MB
-  springfox:
-    documentation:
-      swagger:
-        v2:
-          host: ${BASE_HOST:}/ryan/study
 
-#mybaits相关配置
+logging:
+  level:
+    com.zaxxer.hikari: WARN
+    org.apache.ibatis: WARN
+    org.mybatis: WARN
+    java.sql: ERROR
+    java.sql.Connection: ERROR
+    java.sql.Statement: ERROR
+    java.sql.PreparedStatement: ERROR
+    java.sql.ResultSet: ERROR
+    org.springframework.jdbc: WARN
+    com.baomidou.mybatisplus: WARN
+    com.ryan.deadlock.mapper: WARN
+    com.ryan.business.mapper: WARN
+    com.ryan.**.mapper: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/app.log
+
 mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.ryan.**.entity
   global-config:
     db-config:
       id-type: assign_id
   configuration:
     auto-mapping-behavior: full
     map-underscore-to-camel-case: true
-
-
-
-
-
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl

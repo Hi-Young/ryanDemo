@@ -25,13 +25,14 @@ public class TestController {
     private UserMapper userMapper;
 
     @PostMapping("/test")
-    @Transactional(rollbackFor = Exception.class, isolation =
-            Isolation.REPEATABLE_READ)
+//    @Transactional(rollbackFor = Exception.class, isolation =
+//            Isolation.REPEATABLE_READ)
+    @Transactional(rollbackFor = Exception.class)
     public List<User> test() {
         List<User> list = null;
         for (int i = 1; i < 3; i++) {
             list = userMapper.listAllDataPage(i*10);
-            log.info("list is:{}", list);
+            log.info("list.size:{} is:{}", list.size(), list);
             try {
                 if (i == 1) {
                     

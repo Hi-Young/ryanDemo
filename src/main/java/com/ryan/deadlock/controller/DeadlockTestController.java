@@ -45,6 +45,7 @@ public class DeadlockTestController {
     
     @Autowired
     private DeadlockMonitorAspect deadlockMonitorAspect;
+
     
     /**
      * 获取死锁学习主页信息
@@ -92,9 +93,9 @@ public class DeadlockTestController {
     }
     
     /**
-     * 单次转账测试 - 死锁版本
+     * 单次转账测试 - 使用容易死锁的转账方法（但单次调用不会产生死锁）
      */
-    @PostMapping("/transfer/deadlock-version")
+    @PostMapping("/transfer/single-call")
     public ResultVO<String> transferWithDeadlock(
             @RequestParam String fromAccount,
             @RequestParam String toAccount,
@@ -176,7 +177,7 @@ public class DeadlockTestController {
         log.info("开始模拟库存扣减死锁场景...");
         
         try {
-            inventoryDeadlockService.simulateDeadlock();
+            transferDeadlockService.simulateDeadlockEnhanced();
             return ResultVO.success("库存死锁模拟完成，请查看日志了解详细过程");
         } catch (Exception e) {
             log.error("库存死锁模拟异常: {}", e.getMessage());
@@ -280,6 +281,22 @@ public class DeadlockTestController {
         } catch (Exception e) {
             log.error("Gap锁场景1异常: {}", e.getMessage());
             return ResultVO.error("Gap锁场景1执行失败: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * 简单Gap锁死锁测试 - 基于INSERT导致的Gap锁冲突
+     */
+    @PostMapping("/index/simple-gap-lock")
+    public ResultVO<String> simpleGapLockDeadlock() {
+        log.info("开始简单Gap锁死锁测试...");
+        
+        try {
+            indexDeadlockService.simpleGapLockDeadlock();
+            return ResultVO.success("简单Gap锁死锁测试完成，请查看日志了解详细过程");
+        } catch (Exception e) {
+            log.error("简单Gap锁死锁测试异常: {}", e.getMessage());
+            return ResultVO.error("简单Gap锁死锁测试失败: " + e.getMessage());
         }
     }
     
@@ -394,5 +411,36 @@ public class DeadlockTestController {
             result.put("error", e.getMessage());
             return ResultVO.error("综合死锁测试失败: " + e.getMessage(), result);
         }
+    }
+    
+    /**
+     * 快速死锁测试 - 用于验证系统运行状态
+     */
+    @PostMapping("/quick-test")
+    public ResultVO<String> quickDeadlockTest() {
+        log.info("开始快速死锁测试...");
+        
+        try {
+            // 只测试转账死锁，时间较短
+            transferDeadlockService.simulateDeadlock();
+            return ResultVO.success("快速死锁测试完成，系统运行正常");
+        } catch (Exception e) {
+            log.error("快速死锁测试异常: {}", e.getMessage());
+            return ResultVO.error("快速死锁测试失败: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * 健康检查接口
+     */
+    @GetMapping("/health")
+    public ResultVO<Map<String, Object>> healthCheck() {
+        Map<String, Object> health = new HashMap<>();
+        health.put("status", "UP");
+        health.put("timestamp", System.currentTimeMillis());
+        health.put("deadlockMonitor", "ACTIVE");
+        health.put("message", "死锁学习系统运行正常");
+        
+        return ResultVO.success(health);
     }
 }

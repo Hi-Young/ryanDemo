@@ -43,7 +43,7 @@ application:
 
 mybatis-plus:
   configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
 logging:
   level:
     root: info

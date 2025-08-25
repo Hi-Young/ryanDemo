@@ -24,6 +24,13 @@
         </encoder>
     </appender>
 
+    <!-- 过滤掉详细的JDBC日志 -->
+    <logger name="com.zaxxer.hikari" level="WARN"/>
+    <logger name="org.apache.ibatis" level="WARN"/>
+    <logger name="java.sql" level="WARN"/>
+    <logger name="org.springframework.jdbc" level="WARN"/>
+    <logger name="com.baomidou.mybatisplus" level="WARN"/>
+
     <root level="INFO">
         <springProfile name="default,local,test">
             <appender-ref ref="CONSOLE"/>
@@ -35,5 +42,3 @@
     </root>
 
 </configuration>
-
-

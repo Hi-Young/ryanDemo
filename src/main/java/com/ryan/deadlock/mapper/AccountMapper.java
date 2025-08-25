@@ -16,6 +16,12 @@ import java.math.BigDecimal;
 public interface AccountMapper extends BaseMapper<Account> {
     
     /**
+     * 根据账户号查询账户信息（不加锁）
+     */
+    @Select("SELECT * FROM account WHERE account_no = #{accountNo}")
+    Account selectByAccountNo(@Param("accountNo") String accountNo);
+    
+    /**
      * 根据账户号查询账户(加行锁)
      */
     @Select("SELECT * FROM account WHERE account_no = #{accountNo} FOR UPDATE")
