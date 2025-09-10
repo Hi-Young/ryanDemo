@@ -26,5 +26,9 @@
     <select id="listAllDataPage" resultType="com.ryan.business.entity.user.User">
         select * from user limit #{size}
     </select>
+    
+    <update id="updateAge">
+        UPDATE user SET age = #{age}, update_time = NOW() WHERE id = #{id}
+    </update>
 </mapper>
 

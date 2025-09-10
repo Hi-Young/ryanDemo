@@ -8,9 +8,12 @@
       "Bash(env)",
       "mcp__mcp_server_mysql__mysql_query",
       "Read(//usr/**)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(systemctl status:*)",
+      "Bash(service mysql:*)"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "outputStyle": "default"
 }

@@ -14,6 +14,8 @@ public interface UserMapper extends BaseMapper<User> {
 
     List<User> listAllDataPage(@Param("size") Integer size);
     
+    void updateAge(@Param("id") Integer id, @Param("age") Integer age);
+    
 }
 
 
