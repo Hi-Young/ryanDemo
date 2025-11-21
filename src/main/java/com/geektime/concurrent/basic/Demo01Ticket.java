@@ -32,7 +32,6 @@ class SellTicketTask implements Runnable {
                 try {
                     Thread.sleep(20);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
 //获取当前线程对象的名字
                 String name = Thread.currentThread().getName();

@@ -25,7 +25,7 @@ class InsertTests {
         user.setName("刘强东");
         user.setAge(37);
         user.setEmail("lqd@jd.com");
-        user.setManagerId(1087982257332887553L);
+//        user.setManagerId(1087982257332887553L);
         int rows = userMapper.insert(user);
         System.out.println("影响行数"+rows);
 
