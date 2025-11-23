@@ -66,10 +66,13 @@ public class WildcardSolutionDemo {
      * 提示：参数类型改为 List<? extends Animal>
      */
     private static void printAnimals(List<? extends Animal> animals) {
+        for (Animal animal : animals) {
+            animal.makeSound();
+        }
         // TODO: 实现打印逻辑
         // 1. 遍历 animals 列表
         // 2. 对每个 animal 调用 makeSound() 方法
-        throw new UnsupportedOperationException("请实现这个方法");
+//        throw new UnsupportedOperationException("请实现这个方法");
     }
 
     /**
@@ -103,9 +106,10 @@ public class WildcardSolutionDemo {
      * 提示：参数类型改为 List<? super Dog>
      */
     private static void addDog(List<? super Dog> list, Dog dog) {
+        list.add(dog);
         // TODO: 实现添加逻辑
         // 把 dog 添加到 list 中
-        throw new UnsupportedOperationException("请实现这个方法");
+//        throw new UnsupportedOperationException("请实现这个方法");
     }
 
     /**
@@ -139,8 +143,9 @@ public class WildcardSolutionDemo {
      * 3. 方法签名：<T> void copyAll(List<? extends T> src, List<? super T> dest)
      */
     private static <T> void copyAll(List<? extends T> src, List<? super T> dest) {
+        dest.addAll(src);
         // TODO: 实现复制逻辑
         // 遍历 src，把每个元素添加到 dest
-        throw new UnsupportedOperationException("请实现这个方法");
+//        throw new UnsupportedOperationException("请实现这个方法");
     }
 }

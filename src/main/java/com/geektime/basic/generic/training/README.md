@@ -53,24 +53,36 @@
 
 ---
 
-## Day 3: 泛型约束 + 类型推断 💡
+## Day 3: 类型约束 + 泛型限制 💡
 
 ### 核心知识点
-- 泛型约束 `<T extends Comparable<T>>`
-- 多重边界 `<T extends A & B & C>`
-- 类型推断和菱形操作符
+- 类型约束 `<T extends Comparable<T>>`
+- 多重边界 `<T extends Number & Comparable<T>>`
+- 类型擦除原理与限制
 
 ### 实战场景
-**问题**：实现一个通用的排序工具，要求T必须可比较。
+**问题**：
+- 想实现通用的 findMax，但 `<T>` 太宽泛，不知道 T 有 compareTo 方法
+- 想对不同数字类型求和，不想写重复代码
+- 需要理解泛型的限制（不能 new T()、不能 new T[]）
 
-**解决方案**：使用泛型约束限定类型参数的能力。
+**解决方案**：使用类型约束告诉编译器"T必须满足某些条件"。
 
-### 练习任务
-1. 实现 `SortUtil.sort(List<T extends Comparable<T>>)` 排序工具
-2. 实现 `Pair<K extends Comparable<K>, V>` 可排序键值对
-3. 实现 `JsonSerializer<T extends Serializable & Cloneable>` 多重约束
+### 练习任务（填空练习）
+1. ⭐ 填写单一约束：`findMax`、`sum`、`sortList`
+2. ⭐⭐ 填写多重约束：可比较且可序列化
+3. ⭐⭐⭐ 综合练习：约束 + 通配符组合
 
-**目标**：理解如何约束泛型的能力边界。
+### 学习路径
+1. 运行 `before/TypeBoundsProblemDemo.java` 看问题
+2. 运行 `after/TypeBoundsSolutionDemo.java` 看解决方案
+3. 打开 `practice/TypeBoundsFillInBlanks.java` 做填空练习
+4. 阅读 `limits/TypeErasureLimitsDemo.java` 理解泛型限制
+
+**目标**：
+- 理解什么时候需要类型约束
+- 掌握单一约束和多重约束语法
+- 理解类型擦除带来的限制及解决方案
 
 ---
 
@@ -95,25 +107,55 @@
 
 ---
 
-## Day 5: 高级场景 (自限定类型、类型擦除) 🚀
+## Day 5: 高级技巧 (自限定类型 + TypeToken) 🚀
 
 ### 核心知识点
-- 递归类型限定 `<T extends Comparable<T>>`
-- 自限定类型 `<T extends BaseEntity<T>>`
-- 类型擦除原理和桥接方法
-- 获取泛型类型信息 (TypeToken)
+- **自限定类型**（F-bounded Polymorphism）：`<T extends Builder<T>>`
+- **TypeToken 模式**：运行时获取泛型类型信息
+- 理解类型擦除的底层机制
 
 ### 实战场景
-**问题**：实现Fluent API，让链式调用返回正确的子类类型。
 
-**解决方案**：使用自限定泛型（F-bounded polymorphism）。
+**问题1：链式调用类型丢失**
+- Builder 模式继承时，父类方法返回 `Builder`，无法继续调用子类方法
+- 实体类的链式 setter 无法返回正确的子类类型
 
-### 练习任务
-1. 实现 `BaseBuilder<T extends BaseBuilder<T>>` 支持链式调用
-2. 实现 `TypeToken<T>` 获取运行时泛型信息
-3. 实现 `JsonUtil.fromJson(String json, Class<T> clazz)` 类型安全的反序列化
+**问题2：运行时类型信息丢失**
+- 无法创建泛型数组 `new T[size]`
+- JSON 反序列化时无法知道 `List<User>` 的元素类型
 
-**目标**：掌握泛型的高级技巧，理解类型擦除的本质。
+**解决方案：**
+- 自限定类型：让父类方法返回子类类型
+- TypeToken：通过匿名内部类捕获泛型信息
+
+### 练习任务（填空练习）
+
+**自限定类型：**
+1. ⭐⭐ Builder 模式和实体类链式调用
+2. ⭐⭐⭐ Fluent API（Query DSL）
+
+**TypeToken：**
+1. ⭐⭐ 实现 TypeToken 的核心逻辑
+2. ⭐⭐ 处理复杂泛型类型（`List<User>`）
+3. ⭐⭐⭐ 模拟 Gson 的用法
+
+### 学习路径
+1. 运行 `before/ChainCallProblem.java` 和 `TypeErasureProblem.java` 看问题
+2. 运行 `after/SelfBoundedTypeDemo.java` 和 `TypeTokenDemo.java` 看解决方案
+3. 完成 `practice/` 目录下的填空练习
+4. 阅读 `advanced/RealWorldExamples.java` 看真实应用
+
+**真实应用：**
+- Lombok @Builder 的底层原理
+- JPA 实体类的链式 setter
+- MyBatis-Plus 的 QueryWrapper
+- Java Enum 的 `Enum<E extends Enum<E>>`
+- Gson 的 TypeToken
+
+**目标**：
+- 理解自限定类型的核心模式
+- 掌握 TypeToken 获取运行时类型的技巧
+- 认识泛型在主流框架中的高级应用
 
 ---
 

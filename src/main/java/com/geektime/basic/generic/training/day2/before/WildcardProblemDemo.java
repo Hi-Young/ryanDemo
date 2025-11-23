@@ -41,7 +41,7 @@ public class WildcardProblemDemo {
         dogs.add(new Dog("小黑"));
 
         // ❌ 编译错误：不能把 List<Dog> 赋值给 List<Animal>
-        // List<Animal> animals = dogs;
+//         List<Animal> animals = dogs;
         // 错误信息：Incompatible types: List<Dog> cannot be converted to List<Animal>
 
         System.out.println("✗ List<Animal> animals = dogs; // 编译错误！");
@@ -65,7 +65,7 @@ public class WildcardProblemDemo {
         cats.add(new Cat("喵喵"));
 
         // ❌ 编译错误：不能传入 List<Dog>
-        // printAnimals(dogs);
+//         printAnimals(dogs);
         // 错误信息：printAnimals(List<Animal>) cannot be applied to List<Dog>
 
         System.out.println("✗ printAnimals(dogs); // 编译错误！");

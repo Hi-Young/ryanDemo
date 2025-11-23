@@ -1,6 +1,9 @@
 package com.geektime.basic.generic.training.day2.after;
 
+import org.springframework.util.CollectionUtils;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,7 +15,7 @@ import java.util.List;
  */
 public class PECSExercise {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println("========================================");
         System.out.println("   PECS原则练习");
         System.out.println("========================================\n");
@@ -32,12 +35,12 @@ public class PECSExercise {
     /**
      * 练习1：找出最大值（从集合读取数据）
      */
-    private static void testFindMax() {
+    private static void testFindMax() throws Exception {
         System.out.println("【练习1】找出最大值");
         System.out.println("----------------------------------------");
 
-        List<Integer> integers = List.of(1, 5, 3, 9, 2);
-        List<Double> doubles = List.of(1.5, 3.2, 2.1);
+        List<Integer> integers = Arrays.asList(1, 5, 3, 9, 2);
+        List<Double> doubles = Arrays.asList(1.5, 3.2, 2.1);
 
         Integer maxInt = findMax(integers);
         Double maxDouble = findMax(doubles);
@@ -57,12 +60,25 @@ public class PECSExercise {
      *
      * 提示：<T extends Comparable<T>> T findMax(List<? extends T> list)
      */
-    private static <T extends Comparable<T>> T findMax(List<? extends T> list) {
+    private static <T extends Comparable<T>> T findMax(List<? extends T> list) throws Exception {
         // TODO: 实现找最大值逻辑
         // 1. 检查列表是否为空
         // 2. 遍历列表，用 compareTo 比较
         // 3. 返回最大值
-        throw new UnsupportedOperationException("请实现这个方法");
+        if (CollectionUtils.isEmpty(list)) {
+            throw new Exception("列表为空");
+        }
+//        throw new UnsupportedOperationException("请实现这个方法");
+        T maxValue = list.get(0);
+        if (list.size() == 1) {
+            return maxValue;
+        }
+        for (int i = 1; i <list.size(); i++) {
+            if (maxValue.compareTo(list.get(i))<0) {
+                maxValue = list.get(i);
+            }
+        }
+        return maxValue;
     }
 
     /**
@@ -72,7 +88,7 @@ public class PECSExercise {
         System.out.println("【练习2】批量添加");
         System.out.println("----------------------------------------");
 
-        List<Integer> src = List.of(1, 2, 3);
+        List<Integer> src = Arrays.asList(1, 2, 3);
         List<Number> dest = new ArrayList<>();
 
         addAll(dest, src);
@@ -93,9 +109,10 @@ public class PECSExercise {
      * 提示：<T> void addAll(List<? super T> dest, List<? extends T> src)
      */
     private static <T> void addAll(List<? super T> dest, List<? extends T> src) {
+        dest.addAll(src);
         // TODO: 实现批量添加逻辑
         // 遍历 src，把每个元素添加到 dest
-        throw new UnsupportedOperationException("请实现这个方法");
+//        throw new UnsupportedOperationException("请实现这个方法");
     }
 
     /**
@@ -105,8 +122,8 @@ public class PECSExercise {
         System.out.println("【练习3】计算总和");
         System.out.println("----------------------------------------");
 
-        List<Integer> integers = List.of(1, 2, 3, 4, 5);
-        List<Double> doubles = List.of(1.5, 2.5, 3.5);
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
+        List<Double> doubles = Arrays.asList(1.5, 2.5, 3.5);
 
         double sumInt = sum(integers);
         double sumDouble = sum(doubles);
@@ -127,8 +144,13 @@ public class PECSExercise {
      * 提示：double sum(List<? extends Number> numbers)
      */
     private static double sum(List<? extends Number> numbers) {
+        double sum = 0.0;
+        for (Number number : numbers) {
+            sum += number.doubleValue();
+        }
+        return sum;
         // TODO: 实现求和逻辑
         // 遍历 numbers，调用 doubleValue() 累加
-        throw new UnsupportedOperationException("请实现这个方法");
+//        throw new UnsupportedOperationException("请实现这个方法");
     }
 }
