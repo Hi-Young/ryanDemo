@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class ArthasLargeMethodDemo {
@@ -222,7 +221,7 @@ public class ArthasLargeMethodDemo {
         
         // 结果数据验证
         for (User user : resultUsers) {
-            if (user.getName() == null || user.getName().trim().isEmpty()) {
+            if (user.getUserName() == null || user.getUserName().trim().isEmpty()) {
                 logMessages.add("发现空用户名: " + user.getId());
             }
             

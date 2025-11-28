@@ -178,7 +178,7 @@ public class ArthasBatchQueryDemo {
         statistics.put("processed_ids", processedIds.size());
         
         for (User user : users) {
-            if (user.getName() == null || user.getName().trim().isEmpty()) {
+            if (user.getUserName() == null || user.getUserName().trim().isEmpty()) {
                 System.out.println("发现空用户名: " + user.getId());
                 statistics.put("empty_names", statistics.getOrDefault("empty_names", 0) + 1);
             }

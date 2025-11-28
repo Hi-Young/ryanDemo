@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -50,7 +53,30 @@ public class TestController {
         Integer integer = Integer.valueOf(123);
         Integer integer1 = new Integer(123);
     }
-    
+
+    @PostMapping("/genericTest")
+    public void genericTest() {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        try {
+            list.getClass().getMethod("add", Object.class).invoke(list, "asd");
+        } catch (IllegalAccessException e) {
+            
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static void main(String[] args) {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        if( arrayList instanceof ArrayList){}
+    }
+
+    public static <T> T add(T x, T y) {
+        return y;
+    }
     
 }
 

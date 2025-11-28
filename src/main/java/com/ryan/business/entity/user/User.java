@@ -10,7 +10,7 @@ public class User {
     //主键
     private Long id;
     //用户名
-    private String name;
+    private String userName;
     //邮箱
     private String email;
     //年龄

@@ -22,7 +22,7 @@ class InsertTests {
     @Test
     public void  insert(){
         User user = new User();
-        user.setName("刘强东");
+        user.setUserName("刘强东");
         user.setAge(37);
         user.setEmail("lqd@jd.com");
 //        user.setManagerId(1087982257332887553L);
