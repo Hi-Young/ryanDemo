@@ -1,5 +1,6 @@
 package com.ryan.business.controller;
 
+import com.ryan.business.entity.user.UserChild;
 import com.ryan.business.mapper.UserMapper;
 import com.ryan.business.entity.user.User;
 import lombok.extern.slf4j.Slf4j;
@@ -30,20 +31,23 @@ public class TestController {
     @PostMapping("/test")
 //    @Transactional(rollbackFor = Exception.class, isolation =
 //            Isolation.REPEATABLE_READ)
-    @Transactional(rollbackFor = Exception.class)
-    public List<User> test() {
-        List<User> list = null;
+//    @Transactional(rollbackFor = Exception.class)
+    public List<UserChild> test() {
+        List<UserChild> list = null;
         for (int i = 1; i < 3; i++) {
             list = userMapper.listAllDataPage(i*10);
-            log.info("list.size:{} is:{}", list.size(), list);
-            try {
-                if (i == 1) {
-                    
-                    Thread.sleep(60000);
-                }
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+//            for (UserChild userChild : list) {
+//                
+//            }
+            log.info("list.size:{} is:{}", list.size(), list.get(0));
+//            try {
+//                if (i == 1) {
+//                    
+//                    Thread.sleep(60000);
+//                }
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
         }
         return list;
     }

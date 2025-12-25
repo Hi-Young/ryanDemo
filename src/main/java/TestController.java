@@ -1,6 +1,9 @@
+import com.geektime.designpattern.SinglePattern;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class TestController {
 
@@ -31,7 +34,8 @@ public class TestController {
      * - dest（目标列表）：需要**写入**数据
      *
      * 问题1：src 应该填什么？
-     * A. List<T>
+     * A. List<T>.
+     *   
      * B. List<? extends T>
      * C. List<? super T>
      *
@@ -51,6 +55,24 @@ public class TestController {
     }
 
     public static void main(String[] args) {
-        test3_CopyList();
+        ConcurrentHashMap<Long, Integer> map = new ConcurrentHashMap<>();
+        Integer a = 100;
+        map.put(1L, a);
+
+        Integer stock = map.get(1L);
+        stock += 1;
+
+        System.out.println(stock);          // 101
+        System.out.println(map.get(1L));    // 100  ← map里没变
+        System.out.println(a);              // 100  ← a也没变
     }
+
+    public <T> T createInstance(Class<T> clazz) throws Exception {
+        return clazz.newInstance();
+    }
+
+    public void test() {
+    }
+
+    
 }

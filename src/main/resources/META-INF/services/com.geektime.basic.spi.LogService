@@ -1,0 +1,7 @@
+# SPI 配置文件
+# 文件名 = 接口的全限定名
+# 内容 = 实现类的全限定名，每行一个
+# ServiceLoader 会读取这个文件，通过反射创建实例
+
+com.geektime.basic.spi.impl.ConsoleLogService
+com.geektime.basic.spi.impl.FileLogService
