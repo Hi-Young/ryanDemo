@@ -36,7 +36,7 @@ public class GenericDemo {
     // 使用示例
     public static void testClassGeneric() {
         Box<String> stringBox = new Box<>("hello");
-        String data = stringBox.getData();  // 不需要强转
+        String data = stringBox.getData(); 
         
         // transform方法的R是方法泛型，和类的T独立
         Integer length = stringBox.transform(s -> s.length());

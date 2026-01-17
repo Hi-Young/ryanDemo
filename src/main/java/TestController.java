@@ -1,4 +1,6 @@
 import com.geektime.designpattern.SinglePattern;
+import com.ql.util.express.DefaultContext;
+import com.ql.util.express.ExpressRunner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,16 +57,22 @@ public class TestController {
     }
 
     public static void main(String[] args) {
-        ConcurrentHashMap<Long, Integer> map = new ConcurrentHashMap<>();
-        Integer a = 100;
-        map.put(1L, a);
+        ExpressRunner runner = new ExpressRunner();
+        DefaultContext<String, Object> context = new DefaultContext<>();
 
-        Integer stock = map.get(1L);
-        stock += 1;
+// 注入业务数据
+        context.put("userLevel", 3);
+        context.put("orderAmount", 400);
 
-        System.out.println(stock);          // 101
-        System.out.println(map.get(1L));    // 100  ← map里没变
-        System.out.println(a);              // 100  ← a也没变
+// 执行表达式
+        String express = "userLevel >= 3 && orderAmount > 500";
+        try {
+            Object result = runner.execute(express, context, null, true, false);
+            System.out.println(result);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+// result = true
     }
 
     public <T> T createInstance(Class<T> clazz) throws Exception {
@@ -74,5 +82,6 @@ public class TestController {
     public void test() {
     }
 
+    
     
 }

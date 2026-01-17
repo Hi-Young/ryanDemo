@@ -1,6 +1,7 @@
 package com.ryan.business.controller;
 
 import com.ryan.business.entity.user.User;
+import com.ryan.business.entity.user.UserChild;
 import com.ryan.business.mapper.UserMapper;
 import com.ryan.common.base.ResultVO;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +33,7 @@ public class MyBatisInterceptorTestController {
         user.setEmail("test@example.com");
         user.setAge(25);
         user.setStatus(1);
-        user.setId(4L);
+        user.setId(5L);
 
         int result = userMapper.insert(user);
         log.info("插入结果: {}, 用户信息: {}", result, user);
@@ -72,11 +73,12 @@ public class MyBatisInterceptorTestController {
      * 这个查询会通过安全检查
      */
     @GetMapping("/safe-query-with-limit")
-    public ResultVO<List<User>> testSafeQueryWithLimit() {
+    public ResultVO<List<UserChild>> testSafeQueryWithLimit() {
         // 注意：selectList 默认可能没有 WHERE 或 LIMIT
         // 需要使用自定义 SQL 或者 MyBatis Plus 的条件构造器
-        List<User> users = userMapper.selectList(null);
-        return ResultVO.success(users);
+//        List<User> users = userMapper.selectList(null);
+        List<UserChild> childList= userMapper.listAllDataPage(10);
+        return ResultVO.success(childList);
     }
 
     /**

@@ -34,3 +34,4 @@ build/
 *.log
 *.hprof
 /node_modules/
+dumps/

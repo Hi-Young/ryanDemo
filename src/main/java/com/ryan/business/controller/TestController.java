@@ -51,11 +51,11 @@ public class TestController {
         }
         return list;
     }
-
+    
+    ThreadLocal<String> tl = new ThreadLocal<>();
     @PostMapping("/testInteger")
     public void testInteger() {
-        Integer integer = Integer.valueOf(123);
-        Integer integer1 = new Integer(123);
+        tl.set("hello");
     }
 
     @PostMapping("/genericTest")

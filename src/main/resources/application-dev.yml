@@ -51,4 +51,16 @@ logging:
     com.bruce.mapper: trace
   pattern:
     console: "%p%m%n"
+
+# JVM tuning lab (intentional memory leak; opt-in)
+jvm:
+  leak:
+    enabled: false
+    auto-start: false
+    # Each leaked object allocates a byte[] of this size (1MB default).
+    bytes-per-object: 1048576
+    # Leak rate; with a small -Xmx this will quickly drive GC pressure / Full GC.
+    objects-per-second: 5
+    # Stop after leaking N objects; -1 means no limit (likely ends with OOM).
+    max-objects: -1
     
