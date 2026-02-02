@@ -1,0 +1,97 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "refresh_interval": "1s",
+    "analysis": {
+      "normalizer": {
+        "lowercase_normalizer": {
+          "type": "custom",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "couponId": { "type": "long" },
+
+      "title": {
+        "type": "text",
+        "analyzer": "ik_max_word",
+        "search_analyzer": "ik_smart",
+        "fields": {
+          "keyword": { "type": "keyword", "ignore_above": 256 },
+          "lowercase": {
+            "type": "keyword",
+            "normalizer": "lowercase_normalizer",
+            "ignore_above": 256
+          },
+          "smart_word": {
+            "type": "text",
+            "analyzer": "ik_smart"
+          },
+          "max_word": {
+            "type": "text",
+            "analyzer": "ik_max_word"
+          }
+        }
+      },
+      "subTitle": { "type": "text", "analyzer": "ik_max_word", "search_analyzer": "ik_smart" },
+
+      "merchantId": { "type": "long" },
+      "merchantName": {
+        "type": "text",
+        "analyzer": "ik_max_word",
+        "search_analyzer": "ik_smart",
+        "fields": {
+          "keyword": { "type": "keyword", "ignore_above": 256 }
+        }
+      },
+
+      "categoryIds": { "type": "keyword" },
+      "cityCode": { "type": "keyword" },
+      "platform": { "type": "keyword", "normalizer": "lowercase_normalizer" },
+      "couponType": { "type": "keyword", "normalizer": "lowercase_normalizer" },
+      "status": { "type": "keyword", "normalizer": "lowercase_normalizer" },
+
+      "couponFrom": { "type": "integer" },
+      "couponCategory": { "type": "integer" },
+
+      "discountAmount": { "type": "double" },
+      "thresholdAmount": { "type": "double" },
+      "weight": { "type": "integer" },
+      "sales": { "type": "long" },
+
+      "startTime": { "type": "date", "format": "strict_date_optional_time||epoch_millis" },
+      "endTime": { "type": "date", "format": "strict_date_optional_time||epoch_millis" },
+      "updateTime": { "type": "date", "format": "strict_date_optional_time||epoch_millis" },
+
+      "location": { "type": "geo_point" },
+
+      "tags": { "type": "keyword" },
+      "tagsText": { "type": "text", "analyzer": "ik_max_word", "search_analyzer": "ik_smart" },
+
+      "titleSuggest": { "type": "completion" },
+
+      "stores": {
+        "type": "nested",
+        "properties": {
+          "code": { "type": "keyword" },
+          "name": {
+            "type": "text",
+            "analyzer": "ik_max_word",
+            "search_analyzer": "ik_smart",
+            "fields": {
+              "keyword": { "type": "keyword", "ignore_above": 256 }
+            }
+          },
+          "corporationCode": { "type": "keyword" }
+        }
+      }
+    }
+  }
+}

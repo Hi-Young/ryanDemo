@@ -1,6 +1,7 @@
 # Repository Guidelines
 
 如需更详细信息，请参考 `CLAUDE.md`。
+mysql版本是5.7
 
 ## Project Structure & Module Organization
 

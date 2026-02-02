@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Thin wrapper around arthas-boot.jar.
+# - Default install location: ~/.local/share/arthas/arthas-boot.jar
+# - Override with: ARTHAS_JAR=/path/to/arthas-boot.jar arthas
+
+ARTHAS_HOME="${ARTHAS_HOME:-"$HOME/.local/share/arthas"}"
+ARTHAS_JAR="${ARTHAS_JAR:-"$ARTHAS_HOME/arthas-boot.jar"}"
+
+if [[ ! -f "$ARTHAS_JAR" ]]; then
+  echo "ERROR: arthas-boot.jar not found: $ARTHAS_JAR" >&2
+  echo "Tip: run 'bin/install-arthas.sh' from this repo to install it to ~/.local/share/arthas/." >&2
+  exit 1
+fi
+
+exec java ${JAVA_OPTS:-} -jar "$ARTHAS_JAR" "$@"
+

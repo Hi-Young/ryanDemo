@@ -21,13 +21,13 @@ public class ArthasDemoStarter implements CommandLineRunner {
         System.out.println("Arthas Demo Starter: Initializing demo scenarios...");
 
         // Start some background activities for demonstration
-        threadDemo.startCpuIntensiveThread();
-        threadDemo.startWaitingThread();
-        threadDemo.startDeadlockThreads();
-
-        // Run a few tasks that are not on timers
-        performanceDemo.cpuIntensiveTask();
-        performanceDemo.memoryAllocationTask();
+//        threadDemo.startCpuIntensiveThread();
+//        threadDemo.startWaitingThread();
+//        threadDemo.startDeadlockThreads();
+//
+//        // Run a few tasks that are not on timers
+//        performanceDemo.cpuIntensiveTask();
+//        performanceDemo.memoryAllocationTask();
 
         // Increment the static counter in FieldDemo a few times
         for (int i = 0; i < 5; i++) {

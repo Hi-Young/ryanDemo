@@ -18,6 +18,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <velocity.version>2.3</velocity.version>
         <mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
         <swagger2.version>2.9.2</swagger2.version>
@@ -30,6 +32,8 @@
         <poi.version>3.13</poi.version>
         <poi-ooxml.version>3.13</poi-ooxml.version>
         <xxljob.version>2.3.0</xxljob.version>
+        <!-- Keep Lombok compatible with newer JDKs while still targeting Java 8 bytecode. -->
+        <lombok.version>1.18.30</lombok.version>
     </properties>
 
     <dependencies>
@@ -49,6 +53,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -200,6 +205,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <mainClass>com.RyanDemoApplication</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
@@ -219,7 +225,6 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
-                <!-- 打包时所包含得文件 -->
                 <includes>
                     <include>**/*.yml</include>
                     <include>**/*.properties</include>
@@ -227,7 +232,14 @@
                     <include>**/*.txt</include>
                 </includes>
             </resource>
-
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.json</include>
+                    <include>**/*.ndjson</include>
+                </includes>
+            </resource>
         </resources>
     </build>
     <!--配置信息-->

@@ -1,0 +1,18 @@
+server:
+  port: 19999
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: aeon-coupon-promo-demo
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+logging:
+  level:
+    root: INFO
+
+# author: codex
+

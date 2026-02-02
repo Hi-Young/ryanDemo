@@ -29,6 +29,9 @@ public class ArthasControllerDemo {
     
     @Autowired
     private ArthasLargeMethodDemo arthasLargeMethodDemo;
+    
+    @Autowired
+    private ArthasDeadlockDemo arthasDeadlockDemo;
 
     @GetMapping("/hello")
     public String hello(@RequestParam(name = "name", defaultValue = "World") String name) {
@@ -76,6 +79,48 @@ public class ArthasControllerDemo {
         } else {
             throw new RuntimeException("A generic runtime error occurred.");
         }
+    }
+
+//    /**
+//     * Controlled CPU spike for Arthas profiler practice.
+//     *
+//     * Disabled for now to avoid accidental load generation. Re-enable if you want to practice profiler/flamegraph.
+//     */
+//    @GetMapping("/cpu-burn")
+//    public Map<String, Object> cpuBurn(
+//            @RequestParam(name = "threads", defaultValue = "1") int threads,
+//            @RequestParam(name = "durationMs", defaultValue = "3000") int durationMs,
+//            @RequestParam(name = "load", defaultValue = "40") int load,
+//            @RequestParam(name = "complexity", defaultValue = "5000") int complexity) {
+//
+//        ArthasCpuBurnDemo.BurnResult r = arthasCpuBurnDemo.burn(threads, durationMs, load, complexity);
+//        Map<String, Object> m = new HashMap<>();
+//        m.put("threads", r.threads);
+//        m.put("durationMs", r.durationMs);
+//        m.put("loadPercent", r.loadPercent);
+//        m.put("complexity", r.complexity);
+//        m.put("elapsedMs", r.elapsedMs);
+//        m.put("ops", r.ops);
+//        m.put("blackhole", r.blackhole);
+//        return m;
+//    }
+
+    @GetMapping("/deadlock/start")
+    public Map<String, Object> startDeadlock() {
+        boolean started = arthasDeadlockDemo.startDeadlock();
+        Map<String, Object> m = new HashMap<>();
+        m.put("started", started);
+        m.put("note", started ? "Deadlock threads created." : "Deadlock already started; restart app to create again.");
+        return m;
+    }
+
+    @GetMapping("/deadlock/status")
+    public Map<String, Object> deadlockStatus() {
+        Map<String, Object> m = new HashMap<>();
+        m.put("started", arthasDeadlockDemo.isStarted());
+        m.put("thread1", ArthasDeadlockDemo.THREAD_1_NAME);
+        m.put("thread2", ArthasDeadlockDemo.THREAD_2_NAME);
+        return m;
     }
     
     @GetMapping("/batch-query")

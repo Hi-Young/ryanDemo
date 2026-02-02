@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import mysql from "mysql2/promise";
 
 let connection;
@@ -19,7 +20,8 @@ try {
     port: process.env.MYSQL_PORT || 3306,
     user: process.env.MYSQL_USER || 'wsl_user',
     password: process.env.MYSQL_PASSWORD || '123456',
-    database: process.env.MYSQL_DATABASE || 'study'
+    database: process.env.MYSQL_DATABASE || 'study',
+    connectTimeout: Number(process.env.MYSQL_CONNECT_TIMEOUT_MS || 5000),
   });
   console.error("数据库连接成功");
 } catch (error) {
@@ -27,7 +29,7 @@ try {
   process.exit(1);
 }
 
-server.setRequestHandler("tools/list", async () => ({
+server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
     {
       name: "show_tables",
@@ -48,7 +50,7 @@ server.setRequestHandler("tools/list", async () => ({
   ]
 }));
 
-server.setRequestHandler("tools/call", async (request) => {
+server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (request.params.name === "show_tables") {
     const [rows] = await connection.execute("SHOW TABLES");
     return {

@@ -1,0 +1,83 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "analysis": {
+      "normalizer": {
+        "lowercase_normalizer": {
+          "type": "custom",
+          "filter": ["lowercase"]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "couponId": {
+        "type": "long"
+      },
+      "title": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          },
+          "lowercase": {
+            "type": "keyword",
+            "normalizer": "lowercase_normalizer"
+          }
+        }
+      },
+      "couponCategory": {
+        "type": "integer"
+      },
+      "couponFrom": {
+        "type": "integer"
+      },
+      "discountAmount": {
+        "type": "double"
+      },
+      "thresholdAmount": {
+        "type": "double"
+      },
+      "receiveCount": {
+        "type": "long"
+      },
+      "startTime": {
+        "type": "date",
+        "format": "epoch_millis||yyyy-MM-dd HH:mm:ss"
+      },
+      "endTime": {
+        "type": "date",
+        "format": "epoch_millis||yyyy-MM-dd HH:mm:ss"
+      },
+      "status": {
+        "type": "keyword"
+      },
+      "cityCode": {
+        "type": "keyword"
+      },
+      "stores": {
+        "type": "nested",
+        "properties": {
+          "code": {
+            "type": "keyword"
+          },
+          "name": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "corporationCode": {
+            "type": "keyword"
+          }
+        }
+      }
+    }
+  }
+}

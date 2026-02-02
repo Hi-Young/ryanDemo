@@ -10,10 +10,24 @@
       "Read(//usr/**)",
       "Bash(grep:*)",
       "Bash(systemctl status:*)",
-      "Bash(service mysql:*)"
+      "Bash(service mysql:*)",
+      "Bash(tree:*)",
+      "Bash(cmd /c \"mvn compile -q\")",
+      "Bash(cmd /c \"cd /d D:\\\\PersonalJavaProject\\\\bruceDemo && mvn compile\")",
+      "Bash(cmd /c \"set JAVA_HOME && set M2_HOME && where mvn\")",
+      "Bash(powershell.exe -Command \"cd D:\\\\PersonalJavaProject\\\\bruceDemo; mvn compile 2>&1\")",
+      "Bash(powershell.exe:*)",
+      "Bash(mvn:*)",
+      "Bash(where.exe:*)",
+      "Bash(cmd.exe //c \"mvn --version\")",
+      "Bash(cmd.exe //c \"where java\")",
+      "Bash(tr:*)"
     ],
     "deny": [],
     "ask": []
   },
-  "outputStyle": "default"
+  "outputStyle": "default",
+  "remote": {
+    "defaultEnvironmentId": "env_01L8B8ePH5qPj1GCASPCZPc4"
+  }
 }

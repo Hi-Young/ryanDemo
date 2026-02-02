@@ -1,0 +1,64 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "refresh_interval": "1s",
+    "analysis": {
+      "normalizer": {
+        "lowercase_normalizer": {
+          "type": "custom",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "couponId": { "type": "long" },
+
+      "title": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": { "type": "keyword", "ignore_above": 256 }
+        }
+      },
+      "subTitle": { "type": "text", "analyzer": "standard" },
+
+      "merchantId": { "type": "long" },
+      "merchantName": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": { "type": "keyword", "ignore_above": 256 }
+        }
+      },
+
+      "categoryIds": { "type": "keyword" },
+      "cityCode": { "type": "keyword" },
+      "platform": { "type": "keyword", "normalizer": "lowercase_normalizer" },
+      "couponType": { "type": "keyword", "normalizer": "lowercase_normalizer" },
+      "status": { "type": "keyword", "normalizer": "lowercase_normalizer" },
+
+      "discountAmount": { "type": "double" },
+      "thresholdAmount": { "type": "double" },
+      "weight": { "type": "integer" },
+      "sales": { "type": "long" },
+
+      "startTime": { "type": "date", "format": "strict_date_optional_time||epoch_millis" },
+      "endTime": { "type": "date", "format": "strict_date_optional_time||epoch_millis" },
+      "updateTime": { "type": "date", "format": "strict_date_optional_time||epoch_millis" },
+
+      "location": { "type": "geo_point" },
+
+      "tags": { "type": "keyword" },
+      "tagsText": { "type": "text", "analyzer": "standard" },
+
+      "titleSuggest": { "type": "completion" }
+    }
+  }
+}
+

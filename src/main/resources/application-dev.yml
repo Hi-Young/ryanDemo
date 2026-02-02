@@ -5,7 +5,7 @@ spring:
       datasource:
         db1:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://127.0.0.1:3306/study?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+          url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/study?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
           username: root
           password: 123456
           type: com.zaxxer.hikari.HikariDataSource
@@ -19,7 +19,7 @@ spring:
 application:
   redis:
     database: 4
-    host: 127.0.0.1
+    host: ${REDIS_HOST:127.0.0.1}
     port: 6379
     username: root
     password: 
@@ -64,3 +64,12 @@ jvm:
     # Stop after leaking N objects; -1 means no limit (likely ends with OOM).
     max-objects: -1
     
+demo:
+  elasticsearch:
+    base-url: http://${ES_HOST:127.0.0.1}:9200
+    username:
+    password:
+    coupon-index: coupon_demo_v1
+    coupon-index-mapping: standard
+    connect-timeout-ms: 2000
+    read-timeout-ms: 5000
