@@ -16,6 +16,11 @@ spring:
       idle-timeout: 500000
       max-lifetime: 540000
       connection-test-query: select 1
+rocketmq:
+  name-server: ${ROCKETMQ_NAMESRV:127.0.0.1:9876}
+  producer:
+    group: ${ROCKETMQ_PRODUCER_GROUP:bruce-demo-producer}
+    send-message-timeout: 10000
 application:
   redis:
     database: 4
@@ -73,3 +78,8 @@ demo:
     coupon-index-mapping: standard
     connect-timeout-ms: 2000
     read-timeout-ms: 5000
+  rocketmq:
+    topic: ${ROCKETMQ_TOPIC:bruce-demo-topic}
+    tag: ${ROCKETMQ_TAG:demo}
+    consumer-group: ${ROCKETMQ_CONSUMER_GROUP:bruce-demo-consumer}
+    dashboard-url: ${ROCKETMQ_DASHBOARD_URL:http://127.0.0.1:18080}

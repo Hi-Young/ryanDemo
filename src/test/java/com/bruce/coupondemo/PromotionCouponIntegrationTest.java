@@ -196,6 +196,54 @@ class PromotionCouponIntegrationTest {
     }
 
     @Test
+    @DisplayName("场景7: 折上折(垂直叠加) - 300元, 8折→240→9折→216, 50元券(满200)可用 → 总付166")
+    void testDiscountOnDiscount() {
+        List<CartItem> items = Collections.singletonList(
+                CartItem.builder().skuCode("SKU001").price(new BigDecimal("300")).quantity(1).build()
+        );
+        // 两条折扣规则，不互斥，垂直叠加
+        List<Rule> rules = Arrays.asList(
+                Rule.builder().id("R1").name("8折")
+                        .type(RuleType.DISCOUNT)
+                        .discount(new BigDecimal("0.8"))
+                        .priority(1).build(),
+                Rule.builder().id("R2").name("9折")
+                        .type(RuleType.DISCOUNT)
+                        .discount(new BigDecimal("0.9"))
+                        .priority(2).build()
+        );
+        List<Coupon> coupons = Collections.singletonList(
+                Coupon.builder().couponId("C1").name("50元商品券")
+                        .couponType(CouponType.PRODUCT)
+                        .faceValue(new BigDecimal("50"))
+                        .threshold(new BigDecimal("200"))
+                        .expireDate(LocalDate.of(2026, 12, 31)).build()
+        );
+
+        OrchestrationResult result = orderCalcService.calculate(items, rules, coupons, BigDecimal.ZERO);
+
+        assertEquals(0, new BigDecimal("300").compareTo(result.getOriginalPrice()));
+        // 8折: 300→240(减60), 9折: 240→216(减24), 总促销优惠84
+        assertEquals(0, new BigDecimal("84").compareTo(result.getPromotionDiscount()));
+        assertEquals(0, new BigDecimal("216").compareTo(result.getPriceAfterPromotion()));
+        // 券门槛200, 促销后216>=200 → 券可用, 优惠50
+        assertEquals(0, new BigDecimal("50").compareTo(result.getProductCouponDiscount()));
+        // 总付 216-50=166
+        assertEquals(0, new BigDecimal("166").compareTo(result.getTotalPayPrice()));
+
+        // 验证促销明细：两条规则都生效，垂直叠加
+        assertEquals(2, result.getPromotionDetails().size());
+        // 第一条: 8折, basePrice=300, reduction=60, calculatedPrice=240
+        assertEquals(0, new BigDecimal("300").compareTo(result.getPromotionDetails().get(0).getBasePrice()));
+        assertEquals(0, new BigDecimal("60").compareTo(result.getPromotionDetails().get(0).getReduction()));
+        assertEquals(0, new BigDecimal("240").compareTo(result.getPromotionDetails().get(0).getCalculatedPrice()));
+        // 第二条: 9折, basePrice=240(折上折), reduction=24, calculatedPrice=216
+        assertEquals(0, new BigDecimal("240").compareTo(result.getPromotionDetails().get(1).getBasePrice()));
+        assertEquals(0, new BigDecimal("24").compareTo(result.getPromotionDetails().get(1).getReduction()));
+        assertEquals(0, new BigDecimal("216").compareTo(result.getPromotionDetails().get(1).getCalculatedPrice()));
+    }
+
+    @Test
     @DisplayName("场景6: 券溢出检测 - 30元商品 + 50元券(无门槛) → 实际优惠30(截断) → 总付0")
     void testCouponOverflow() {
         List<CartItem> items = Collections.singletonList(

@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication//change name1
 @EnableScheduling
-@MapperScan("com.**.mapper")
+@MapperScan("com.ryan.**.mapper")
 public class RyanDemoApplication implements CommandLineRunner {
 
 

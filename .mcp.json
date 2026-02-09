@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "mysql": {
+      "command": "node",
+      "args": ["mysql-mcp.js"],
+      "cwd": "D:\\PersonalJavaProject\\bruceDemo",
+      "env": {
+        "MYSQL_HOST": "127.0.0.1",
+        "MYSQL_PORT": "3306",
+        "MYSQL_USER": "wsl_user",
+        "MYSQL_PASSWORD": "123456",
+        "MYSQL_DATABASE": "study"
+      }
+    }
+  }
+}

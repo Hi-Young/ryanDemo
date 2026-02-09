@@ -59,7 +59,10 @@ public class AeonOrderCalcFlowTest {
 
         req.setCartItems(Arrays.asList(apple, beef, milk));
 
+        long start = System.currentTimeMillis();
         AeonOrderCalcResponse resp = orderCalcService.calc(req);
+        long end = System.currentTimeMillis();
+        System.out.println("calc耗时：" + (end - start));
         assertNotNull(resp);
 
         // 1) 原价：60 + 120 + 60 = 240

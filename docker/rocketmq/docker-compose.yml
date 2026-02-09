@@ -1,0 +1,29 @@
+services:
+  rmq-namesrv:
+    image: apache/rocketmq:5.3.2
+    container_name: bruce-demo-rmq-namesrv
+    command: sh mqnamesrv
+    ports:
+      - "9876:9876"
+
+  rmq-broker:
+    image: apache/rocketmq:5.3.2
+    container_name: bruce-demo-rmq-broker
+    depends_on:
+      - rmq-namesrv
+    command: sh mqbroker -n rmq-namesrv:9876 -c /home/rocketmq/conf/broker.conf
+    volumes:
+      - ./broker.conf:/home/rocketmq/conf/broker.conf
+    ports:
+      - "10911:10911"
+      - "10909:10909"
+
+  rmq-dashboard:
+    image: apacherocketmq/rocketmq-dashboard:latest
+    container_name: bruce-demo-rmq-dashboard
+    depends_on:
+      - rmq-namesrv
+    environment:
+      JAVA_OPTS: "-Drocketmq.namesrv.addr=rmq-namesrv:9876 -Dserver.port=8080"
+    ports:
+      - "18080:8080"

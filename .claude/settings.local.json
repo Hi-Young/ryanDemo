@@ -21,7 +21,9 @@
       "Bash(where.exe:*)",
       "Bash(cmd.exe //c \"mvn --version\")",
       "Bash(cmd.exe //c \"where java\")",
-      "Bash(tr:*)"
+      "Bash(tr:*)",
+      "mcp__mysql__show_tables",
+      "mcp__mysql__query_sql"
     ],
     "deny": [],
     "ask": []
